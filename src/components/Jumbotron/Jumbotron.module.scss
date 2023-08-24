@@ -1,0 +1,45 @@
+.base {
+	@apply h-96 relative;
+	@apply flex flex-col justify-center;
+
+	.image {
+		@apply h-full w-full absolute -z-10;
+
+		img {
+			@apply object-cover;
+		}
+	}
+
+	.content {
+		@apply container;
+
+		.content_grid {
+			@apply grid grid-cols-1 md:grid-cols-2 gap-4;
+
+			.column_1,
+			.column_2 .box {
+				@apply space-y-6;
+			}
+		}
+
+		.title {
+			@apply font-bold text-white;
+		}
+
+		.subtitle {
+			@apply font-medium text-white;
+		}
+
+		.label {
+			@apply text-yellow-500 text-sm uppercase font-medium;
+		}
+
+		.form {
+			@apply flex items-center space-x-2;
+		}
+
+		.box {
+			@apply bg-black/50 rounded p-8 h-full w-full;
+		}
+	}
+}
