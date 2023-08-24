@@ -1,0 +1,11 @@
+.base {
+	@apply border-b py-4;
+
+	.content {
+		@apply container;
+
+		ul {
+			@apply flex items-center space-x-8;
+		}
+	}
+}
