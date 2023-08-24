@@ -1,4 +1,4 @@
-runtime: nodejs14 # change to the version of node you are using
+runtime: nodejs20 # change to the version of node you are using
 
 instance_class: F2 # Configure your instance class as per your need
 
