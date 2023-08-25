@@ -7,6 +7,14 @@
 		.footer {
 			@apply grid grid-cols-1 md:grid-cols-2 items-start text-sm;
 
+			.logo {
+				@apply h-20 w-20 relative mb-8;
+
+				img {
+					@apply object-contain;
+				}
+			}
+
 			.meta {
 				@apply text-xs text-gray-500 my-4;
 			}

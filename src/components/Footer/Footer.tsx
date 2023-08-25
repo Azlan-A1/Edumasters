@@ -1,4 +1,5 @@
 // Next
+import Image from 'next/image'
 import Link from 'next/link'
 
 // Styles
@@ -7,6 +8,9 @@ import styles from './Footer.module.scss'
 // Data
 import { footerNavigation } from './Footer.data'
 import { socialProfiles } from '@/data/social-media'
+
+// Assets
+import logo from '@/assets/brand/edumasters_logo.svg'
 
 // Packages
 import { SocialIcon } from 'react-social-icons'
@@ -31,6 +35,9 @@ const Footer = () => {
 				</div>
 				<div className={styles.footer}>
 					<div>
+						<div className={styles.logo}>
+							<Image src={logo} alt='Edumasters Logo' fill />
+						</div>
 						<p>
 							&copy; {new Date().getFullYear()} Edumasters. All Rights Reserved.
 						</p>
@@ -55,13 +62,15 @@ const Footer = () => {
 							))}
 						</div>
 					</div>
-					<div className={styles.legal}>
-						<p>Privacy Policy</p>
-						<p>CA Privacy Notice</p>
-						<p>Do not sell or share my Personal Information</p>
-						<p>Opt-out Rights</p>
-						<p>Terms of Use</p>
-						<p>Site Map</p>
+					<div>
+						<div className={styles.legal}>
+							<p>Privacy Policy</p>
+							<p>CA Privacy Notice</p>
+							<p>Do not sell or share my Personal Information</p>
+							<p>Opt-out Rights</p>
+							<p>Terms of Use</p>
+							<p>Site Map</p>
+						</div>
 					</div>
 				</div>
 			</div>
