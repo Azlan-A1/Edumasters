@@ -1,5 +1,8 @@
-// Components
+// Next
 import Image from 'next/image'
+
+// Components
+import Button from '../Button'
 import Input from '../Input'
 
 // Styles
@@ -7,7 +10,8 @@ import styles from './Jumbotron.module.scss'
 
 // Assets
 import graduation from '@/assets/images/graduation.webp'
-import Button from '../Button'
+
+// Packages
 import classNames from 'classnames'
 
 const Jumbotron = () => {
@@ -21,9 +25,11 @@ const Jumbotron = () => {
 					<div className={styles.column_1}>
 						<p className={styles.label}>Find my test prep</p>
 						<p className={styles.subtitle}>
-							No matter the exam, score improvement is guaranteed. *
+							No matter the exam, score improvement is guaranteed.*
 						</p>
-						<h1 className={styles.title}>Maximum Results. Minimum Time.</h1>
+						<h1 className={classNames(styles.title)}>
+							Maximum Results. Minimum Time.
+						</h1>
 
 						<form className={styles.form}>
 							<Input.TextInput
