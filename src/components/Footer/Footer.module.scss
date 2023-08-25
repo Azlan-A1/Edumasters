@@ -2,10 +2,10 @@
 	@apply bg-gray-50 mt-16;
 
 	.content {
-		@apply container;
+		@apply container py-16 space-y-16;
 
 		.footer {
-			@apply grid grid-cols-1 md:grid-cols-2 py-8 items-start text-sm;
+			@apply grid grid-cols-1 md:grid-cols-2 items-start text-sm;
 
 			.meta {
 				@apply text-xs text-gray-500 my-4;
@@ -17,6 +17,28 @@
 
 			.legal {
 				@apply flex flex-wrap space-x-4 items-start justify-end;
+			}
+		}
+
+		.navigation {
+			@apply grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-4;
+
+			.column {
+				.column_title {
+					@apply mb-2;
+				}
+
+				.column_links {
+					@apply flex flex-col space-y-0.5;
+
+					a {
+						@apply rounded transition-all;
+
+						&:hover {
+							@apply bg-gray-100 px-2;
+						}
+					}
+				}
 			}
 		}
 	}

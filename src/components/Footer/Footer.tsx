@@ -18,18 +18,16 @@ const Footer = () => {
 				<div className={styles.navigation}>
 					{footerNavigation.map((nav, index) => (
 						<div className={styles.column} key={index}>
-							<h5>{nav.title}</h5>
-							{nav.links.map((link, index) => (
-								<Link href={link.href} key={index} legacyBehavior>
-									<p>{link.name}</p>
-								</Link>
-							))}
+							<h6 className={styles.column_title}>{nav.title}</h6>
+							<div className={styles.column_links}>
+								{nav.links.map((link, index) => (
+									<Link href={link.href} key={index} legacyBehavior>
+										{link.name}
+									</Link>
+								))}
+							</div>
 						</div>
 					))}
-
-					<div className={styles.column}>
-						<h5>College</h5>
-					</div>
 				</div>
 				<div className={styles.footer}>
 					<div>
