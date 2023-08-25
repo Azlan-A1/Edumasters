@@ -32,15 +32,14 @@ const Footer = () => {
 				<div className={styles.footer}>
 					<div>
 						<p>
-							&copy; {new Date().getFullYear()} React Tutoring LLC. All Rights
-							Reserved.
+							&copy; {new Date().getFullYear()} Edumasters. All Rights Reserved.
 						</p>
 						<p className={styles.meta}>
 							React Tutorial LLC is controlled and operated by React Tutoring
-							LLC, a firm owned by React Tutoring LLC. React Tutoring LLC is a
-							registered trademark of React Tutoring LLC. All other trademarks,
-							service marks, and logos used on React Tutoring LLC are the
-							trademarks, service marks, or logos of their respective owners.
+							LLC, a firm owned by Edumasters. Edumasters is a registered
+							trademark of Edumasters. All other trademarks, service marks, and
+							logos used on Edumasters are the trademarks, service marks, or
+							logos of their respective owners.
 						</p>
 						<div className={styles.socials}>
 							{socialProfiles.map((social, index) => (

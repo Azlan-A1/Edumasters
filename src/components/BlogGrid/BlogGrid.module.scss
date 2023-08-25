@@ -1,0 +1,30 @@
+.base {
+	.content {
+		@apply container;
+		@apply grid grid-cols-4 gap-4;
+
+		.blog_item {
+			@apply relative space-y-1;
+
+			.blog_image {
+				@apply h-36 relative;
+
+				img {
+					@apply rounded object-cover;
+				}
+			}
+
+			.blog_content {
+				@apply group-hover:bg-gray-100;
+
+				.blog_meta {
+					@apply text-sm text-gray-500;
+				}
+			}
+		}
+	}
+
+	.content_cta {
+		@apply flex flex-col items-center mt-8;
+	}
+}

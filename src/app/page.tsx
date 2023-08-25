@@ -8,6 +8,7 @@ import USPs from '@/components/USPs'
 
 // Assets
 import magazine from '@/assets/images/magazine.webp'
+import BlogGrid from '@/components/BlogGrid/BlogGrid'
 
 export default function Home() {
 	return (
@@ -25,6 +26,7 @@ export default function Home() {
 			</Container>
 			<ServicesGrid />
 			<USPs />
+			<BlogGrid />
 		</div>
 	)
 }
