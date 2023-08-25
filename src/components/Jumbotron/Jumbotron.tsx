@@ -7,6 +7,7 @@ import styles from './Jumbotron.module.scss'
 
 // Assets
 import graduation from '@/assets/images/graduation.webp'
+import Button from '../Button'
 
 const Jumbotron = () => {
 	return (
@@ -28,9 +29,7 @@ const Jumbotron = () => {
 								id='test_name'
 								placeholder='Enter your test name'
 							/>
-							<button className='bg-pink-500 hover:bg-pink-600 px-2 py-1 rounded-sm text-white'>
-								Find your Prep
-							</button>
+							<Button variant='primary'>Find your Prep</Button>
 						</form>
 					</div>
 					<div className={styles.column_2}>
@@ -46,9 +45,7 @@ const Jumbotron = () => {
 									id='school_name'
 									placeholder='Enter your school name'
 								/>
-								<button className='bg-pink-500 hover:bg-pink-600 px-2 py-1 rounded-sm text-white'>
-									Find your School
-								</button>
+								<Button variant='primary'>Find your School</Button>
 							</form>
 						</div>
 					</div>

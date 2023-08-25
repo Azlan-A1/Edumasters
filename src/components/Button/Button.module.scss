@@ -1,0 +1,19 @@
+.base {
+	@apply px-2 py-1 rounded;
+
+	&.default {
+		@apply bg-gray-200 text-gray-800;
+
+		&:hover {
+			@apply bg-gray-300;
+		}
+	}
+
+	&.primary {
+		@apply bg-pink-500 text-white;
+
+		&:hover {
+			@apply bg-pink-600;
+		}
+	}
+}
