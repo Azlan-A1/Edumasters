@@ -1,0 +1,23 @@
+.base {
+	@apply bg-gray-50 mt-16;
+
+	.content {
+		@apply container;
+
+		.footer {
+			@apply grid grid-cols-1 md:grid-cols-2 py-8 items-start text-sm;
+
+			.meta {
+				@apply text-xs text-gray-500 my-4;
+			}
+
+			.socials {
+				@apply space-x-4;
+			}
+
+			.legal {
+				@apply flex flex-wrap space-x-4 items-start justify-end;
+			}
+		}
+	}
+}
