@@ -2,6 +2,12 @@
 	.content {
 		@apply container grid grid-cols-6 gap-4 divide-x;
 
+		.column_1,
+		.column_2,
+		.column_3 {
+			@apply gap-1;
+		}
+
 		.column_1 {
 			@apply col-span-3;
 			@apply grid grid-rows-4 grid-cols-3 grid-flow-col;
@@ -15,6 +21,14 @@
 		.column_3 {
 			@apply col-span-1 pl-12;
 			@apply grid grid-rows-4 grid-cols-1;
+		}
+
+		.course {
+			@apply rounded-sm transition-all;
+
+			&:hover {
+				@apply bg-gray-100 px-1;
+			}
 		}
 	}
 }

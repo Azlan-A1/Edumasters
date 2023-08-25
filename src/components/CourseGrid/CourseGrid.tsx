@@ -1,16 +1,18 @@
+// Next
+import Link from 'next/link'
+
 // Styles
 import styles from './CourseGrid.module.scss'
 
 // Data
 import { courses } from './CourseGrid.data'
-import Link from 'next/link'
 
 interface CourseGridProps {}
 
 const CourseGrid = (props: CourseGridProps) => {
 	const CourseLink = (props: { name: string; path: string }) => {
 		return (
-			<Link href={props.path}>
+			<Link href={props.path} className={styles.course}>
 				<div>
 					<span>{props.name}</span>
 				</div>

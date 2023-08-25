@@ -1,0 +1,18 @@
+.base {
+	.content {
+		@apply container py-8;
+		@apply flex flex-row items-center space-x-12;
+
+		.image {
+			@apply relative w-36 h-36;
+
+			img {
+				@apply object-contain;
+			}
+		}
+
+		.children {
+			@apply space-y-1.5;
+		}
+	}
+}

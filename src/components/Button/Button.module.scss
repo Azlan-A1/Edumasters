@@ -1,5 +1,9 @@
 .base {
-	@apply px-2 py-1 rounded;
+	@apply block px-2 py-1 rounded w-fit;
+
+	&.button_rounded {
+		@apply rounded-full px-4;
+	}
 
 	&.default {
 		@apply bg-gray-200 text-gray-800;

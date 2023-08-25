@@ -8,6 +8,7 @@ interface ButtonProps {
 	children: React.ReactNode
 	type?: 'button' | 'submit'
 	variant?: 'default' | 'primary' | 'secondary' | 'tertiary'
+	rounded?: boolean
 }
 
 const Button = (props: ButtonProps) => {
@@ -16,12 +17,18 @@ const Button = (props: ButtonProps) => {
 	return (
 		<button
 			type={type}
-			className={classNames(styles.base, {
-				[styles.default]: props.variant === 'default' || !props.variant,
-				[styles.primary]: props.variant === 'primary',
-				[styles.secondary]: props.variant === 'secondary',
-				[styles.tertiary]: props.variant === 'tertiary',
-			})}
+			className={classNames(
+				styles.base,
+				{
+					[styles.default]: props.variant === 'default' || !props.variant,
+					[styles.primary]: props.variant === 'primary',
+					[styles.secondary]: props.variant === 'secondary',
+					[styles.tertiary]: props.variant === 'tertiary',
+				},
+				{
+					[styles.button_rounded]: props.rounded,
+				}
+			)}
 		>
 			{props.children}
 		</button>

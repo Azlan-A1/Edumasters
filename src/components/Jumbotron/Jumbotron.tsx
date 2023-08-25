@@ -8,12 +8,13 @@ import styles from './Jumbotron.module.scss'
 // Assets
 import graduation from '@/assets/images/graduation.webp'
 import Button from '../Button'
+import classNames from 'classnames'
 
 const Jumbotron = () => {
 	return (
 		<div className={styles.base}>
 			<div className={styles.image}>
-				<Image src={graduation} alt='Graduation - change this for SEO' fill />
+				<Image src={graduation} alt='Graduation - #SEO' fill />
 			</div>
 			<div className={styles.content}>
 				<div className={styles.content_grid}>
@@ -38,7 +39,9 @@ const Jumbotron = () => {
 							<p className={styles.subtitle}>
 								Thousands of school profiles, rankings and expert advice.
 							</p>
-							<h2 className={styles.title}>Find the right school for you</h2>
+							<h2 className={classNames(styles.title, 'h1')}>
+								Find the right school for you
+							</h2>
 
 							<form className={styles.form}>
 								<Input.TextInput

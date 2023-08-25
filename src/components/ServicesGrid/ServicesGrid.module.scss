@@ -1,0 +1,35 @@
+.base {
+	.content {
+		@apply container;
+		@apply grid grid-cols-4 gap-4;
+
+		.service {
+			@apply relative overflow-hidden rounded-lg h-48;
+			@apply flex items-center justify-center;
+
+			.service_image {
+				@apply absolute h-full w-full -z-10;
+
+				img {
+					@apply object-cover;
+				}
+			}
+
+			.service_content {
+				@apply flex flex-col items-center;
+
+				.service_title {
+					@apply font-semibold text-white;
+				}
+
+				.service_subtitle {
+					@apply font-bold text-white;
+				}
+
+				.service_description {
+					@apply text-white my-2;
+				}
+			}
+		}
+	}
+}

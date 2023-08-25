@@ -1,0 +1,15 @@
+.base {
+	.content {
+		@apply container;
+		@apply grid grid-cols-2 gap-16;
+
+		.usp {
+			@apply flex flex-col items-center;
+			@apply text-center;
+
+			.usp_icon {
+				@apply mb-4;
+			}
+		}
+	}
+}
