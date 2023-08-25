@@ -2,16 +2,16 @@
 import type { Metadata } from 'next'
 
 // Fonts
-import { Inter } from 'next/font/google'
+import { Heebo } from 'next/font/google'
 
 // Components
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import Navigation from '@/components/Navigation'
 
 // Styles
 import '@/styles/main.scss'
 
-const inter = Inter({ subsets: ['latin'] })
+const heebo = Heebo({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'Tutor Website',
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className={heebo.className}>
 				<Navigation />
 				{children}
 				<Footer />
