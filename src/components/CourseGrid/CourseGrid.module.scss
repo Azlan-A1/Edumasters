@@ -1,26 +1,18 @@
 .base {
 	.content {
-		@apply container grid grid-cols-6 gap-4 divide-x;
+		@apply container grid grid-cols-1 md:grid-cols-2 gap-4 divide-x;
 
 		.column_1,
-		.column_2,
-		.column_3 {
+		.column_2 {
 			@apply gap-1;
 		}
 
 		.column_1 {
-			@apply col-span-3;
 			@apply grid grid-rows-4 grid-cols-3 grid-flow-col;
 		}
 
 		.column_2 {
-			@apply col-span-2 pl-12;
-			@apply grid grid-rows-4 grid-cols-2 grid-flow-col;
-		}
-
-		.column_3 {
-			@apply col-span-1 pl-12;
-			@apply grid grid-rows-4 grid-cols-1;
+			@apply grid grid-rows-4 grid-cols-2 grid-flow-col pl-12;
 		}
 
 		.course {

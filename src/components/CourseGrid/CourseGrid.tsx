@@ -37,13 +37,6 @@ const CourseGrid = (props: CourseGridProps) => {
 						)
 					})}
 				</div>
-				<div className={styles.column_3}>
-					{courses[2].map((course, index) => {
-						return (
-							<CourseLink key={index} name={course.name} path={course.path} />
-						)
-					})}
-				</div>
 			</div>
 		</div>
 	)

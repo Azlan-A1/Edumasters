@@ -63,30 +63,8 @@ export const courses = [
 			path: '/course/lsat',
 		},
 		{
-			name: 'GRE*',
-			path: '/course/gre',
-		},
-		{
 			name: 'GMAT*',
 			path: '/course/gmat',
-		},
-	],
-	[
-		{
-			name: 'NCLEX-RN*',
-			path: '/course/nclex-rn',
-		},
-		{
-			name: 'CFA*',
-			path: '/course/cfa',
-		},
-		{
-			name: 'CPA*/CMA*/CISA*',
-			path: '/course/cpa-cma-cisa',
-		},
-		{
-			name: 'USMLE*',
-			path: '/course/usmle',
 		},
 	],
 ]
