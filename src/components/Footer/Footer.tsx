@@ -50,15 +50,14 @@ const Footer = () => {
 						</p>
 						<div className={styles.socials}>
 							{socialProfiles.map((social, index) => (
-								<Link href='/' key={index} legacyBehavior>
-									<SocialIcon
-										network={social.network}
-										style={{
-											height: 36,
-											width: 36,
-										}}
-									/>
-								</Link>
+								<SocialIcon
+									network={social.network}
+									url={social.url}
+									style={{
+										height: 36,
+										width: 36,
+									}}
+								/>
 							))}
 						</div>
 					</div>
