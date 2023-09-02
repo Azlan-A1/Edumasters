@@ -53,6 +53,7 @@ const Footer = () => {
 								<SocialIcon
 									network={social.network}
 									url={social.url}
+									target='_blank'
 									style={{
 										height: 36,
 										width: 36,
