@@ -33,6 +33,7 @@ const Footer = () => {
 						</div>
 					))}
 				</div>
+
 				<div className={styles.footer}>
 					<div>
 						<div className={styles.logo}>

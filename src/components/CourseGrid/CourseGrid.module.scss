@@ -1,6 +1,7 @@
 .base {
 	.content {
-		@apply container grid grid-cols-1 md:grid-cols-2 gap-4 divide-x;
+		@apply container grid gap-4 md:divide-x px-4;
+		@apply grid-cols-1 md:grid-cols-2;
 
 		.column_1,
 		.column_2 {
@@ -8,11 +9,12 @@
 		}
 
 		.column_1 {
-			@apply grid grid-rows-4 grid-cols-3 grid-flow-col;
+			@apply grid grid-rows-4 grid-flow-col;
+			@apply grid-cols-2 md:grid-cols-3;
 		}
 
 		.column_2 {
-			@apply grid grid-rows-4 grid-cols-2 grid-flow-col pl-12;
+			@apply grid grid-rows-4 grid-cols-2 grid-flow-col md:pl-12;
 		}
 
 		.course {

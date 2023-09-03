@@ -3,9 +3,12 @@
 
 	.content {
 		@apply container py-16 space-y-16;
+		@apply px-4;
 
 		.footer {
-			@apply grid grid-cols-1 md:grid-cols-2 items-start text-sm;
+			@apply grid items-start text-sm;
+			@apply grid-cols-1 md:grid-cols-2;
+			@apply space-y-4 md:space-y-0;
 
 			.logo {
 				@apply h-20 w-20 relative mb-8;
@@ -24,12 +27,13 @@
 			}
 
 			.legal {
-				@apply flex flex-wrap space-x-4 items-start justify-end;
+				@apply flex flex-wrap space-x-4 items-start;
+				@apply md:justify-end;
 			}
 		}
 
 		.navigation {
-			@apply grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-4;
+			@apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4;
 
 			.column {
 				.column_title {

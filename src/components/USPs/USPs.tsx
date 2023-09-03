@@ -24,36 +24,36 @@ const USPs = () => {
 				<div className={styles.usps}>
 					<div className={styles.usp}>
 						<div className={styles.usp_icon}>
-							<IconRocket size={48} stroke={1} />
+							<IconRocket size={40} stroke={1} />
 						</div>
-						<h3 className={styles.usp_title}>1-on-1 Tutoring</h3>
+						<p className={styles.usp_title}>1-on-1 Tutoring</p>
 						<p className={styles.usp_description}>
 							Get 1-on-1 help from a top tutor in your area.
 						</p>
 					</div>
 					<div className={styles.usp}>
 						<div className={styles.usp_icon}>
-							<IconBook size={48} stroke={1} />
+							<IconBook size={40} stroke={1} />
 						</div>
-						<h3 className={styles.usp_title}>100% Satisfaction</h3>
+						<p className={styles.usp_title}>100% Satisfaction</p>
 						<p className={styles.usp_description}>
 							We guarantee you'll be satisfied with your tutor.
 						</p>
 					</div>
 					<div className={styles.usp}>
 						<div className={styles.usp_icon}>
-							<IconUser size={48} stroke={1} />
+							<IconUser size={40} stroke={1} />
 						</div>
-						<h3 className={styles.usp_title}>Affordable</h3>
+						<p className={styles.usp_title}>Affordable</p>
 						<p className={styles.usp_description}>
 							We offer affordable pricing for all students.
 						</p>
 					</div>
 					<div className={styles.usp}>
 						<div className={styles.usp_icon}>
-							<IconClockCheck size={48} stroke={1} />
+							<IconClockCheck size={40} stroke={1} />
 						</div>
-						<h3 className={styles.usp_title}>Flexible</h3>
+						<p className={styles.usp_title}>Flexible</p>
 						<p className={styles.usp_description}>
 							We offer flexible scheduling for all students.
 						</p>
