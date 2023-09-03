@@ -1,0 +1,30 @@
+.base {
+	@apply h-96 relative;
+
+	.content {
+		@apply container h-full space-y-4;
+		@apply flex flex-col items-center justify-center;
+
+		.title {
+			@apply text-white;
+		}
+
+		.description {
+			@apply text-white font-medium w-2/5 text-center text-xl;
+		}
+
+		.button {
+			@apply px-4 py-2 transition-colors;
+			@apply bg-pink-500 border-2 border-black;
+			@apply text-xl font-medium text-white uppercase tracking-wider;
+
+			&:hover {
+				@apply bg-black border-pink-500;
+			}
+		}
+	}
+
+	.image {
+		@apply object-cover -z-10 brightness-75;
+	}
+}
