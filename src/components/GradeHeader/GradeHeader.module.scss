@@ -14,9 +14,9 @@
 		}
 
 		.button {
-			@apply px-4 py-2 transition-colors;
+			@apply px-10 py-2 transition-colors;
 			@apply bg-pink-500 border-2 border-black;
-			@apply text-xl font-medium text-white uppercase tracking-wider;
+			@apply text-xl font-medium text-white uppercase;
 
 			&:hover {
 				@apply bg-black border-pink-500;

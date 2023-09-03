@@ -1,0 +1,69 @@
+.base {
+	.content {
+		@apply container;
+
+		.disclaimer {
+			@apply text-center text-xs text-gray-400 mt-4;
+		}
+
+		.table {
+			@apply grid grid-cols-4 gap-12;
+
+			.pricing_item {
+				@apply px-2 py-8 text-center transition-colors;
+				@apply border-2 border-transparent;
+				@apply bg-gray-100;
+
+				.title {
+					@apply font-medium text-xl;
+				}
+
+				.online_tag {
+					@apply text-pink-500 font-medium text-sm;
+				}
+
+				.pricing {
+					@apply my-4;
+
+					.price {
+						@apply font-medium text-3xl;
+						@apply flex justify-center items-center;
+
+						.price_frequency {
+							@apply block text-gray-400 font-normal text-base ml-0.5;
+						}
+					}
+				}
+
+				.description {
+					@apply text-gray-500 text-sm;
+				}
+
+				.buy_button {
+					@apply px-4 py-1 rounded-sm mt-8 transition-colors;
+					@apply border-2 border-pink-500 text-pink-500;
+
+					&:hover {
+						@apply bg-pink-500 text-white;
+					}
+				}
+
+				&.featured {
+					@apply border-black;
+
+					.buy_button {
+						@apply bg-pink-500 text-white;
+
+						&:hover {
+							@apply bg-transparent text-pink-500;
+						}
+					}
+				}
+
+				&:hover {
+					@apply border-pink-500;
+				}
+			}
+		}
+	}
+}

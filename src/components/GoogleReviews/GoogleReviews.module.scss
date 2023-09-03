@@ -1,0 +1,42 @@
+.base {
+	.reviews_grid {
+		@apply grid gap-8;
+		@apply grid-cols-1 md:grid-cols-2;
+
+		.column {
+			@apply space-y-8;
+		}
+
+		.review {
+			@apply border rounded shadow-lg p-4;
+
+			.review_header {
+				@apply flex items-center mb-4;
+
+				.review_avatar {
+					@apply h-12 w-12 rounded-full bg-gray-100;
+				}
+
+				.review_meta {
+					@apply ml-2;
+
+					.review_author {
+						@apply font-medium;
+					}
+
+					.review_rating {
+						@apply flex items-center space-x-0.5 text-xs text-pink-500;
+					}
+				}
+
+				.review_details {
+					@apply ml-auto;
+				}
+			}
+
+			.review_body {
+				@apply text-sm;
+			}
+		}
+	}
+}

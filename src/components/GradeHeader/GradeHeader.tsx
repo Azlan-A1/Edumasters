@@ -21,10 +21,10 @@ const GradeHeader = (props: GradeHeaderProps) => {
 				className={styles.image}
 			/>
 			<div className={styles.content}>
-				<h1 className={styles.title}>{props.data.title}</h1>
-				<p className={styles.description}>
+				<h1 className={styles.title}>{props.data.title} Tutoring</h1>
+				<h2 className={styles.description}>
 					Looking for a top score in the {props.data.title} exam?
-				</p>
+				</h2>
 				<button className={styles.button}>Enroll Now</button>
 			</div>
 		</div>

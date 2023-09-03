@@ -5,4 +5,10 @@ export type Grade = {
 	headerImage: {
 		url: string
 	}
+	frequentlyAskedQuestions: [
+		{
+			question: string
+			answer: string
+		}
+	]
 }

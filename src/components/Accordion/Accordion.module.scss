@@ -1,0 +1,27 @@
+.base {
+	.accordion {
+		@apply space-y-4;
+
+		.item {
+			@apply bg-gray-100 rounded;
+
+			.question {
+				@apply cursor-pointer;
+				@apply flex items-center justify-between;
+				@apply px-4 py-4;
+
+				.question_text {
+					@apply flex items-center font-medium;
+
+					.question_icon {
+						@apply bg-pink-500 text-white rounded-full mr-2 p-0.5;
+					}
+				}
+			}
+
+			.answer {
+				@apply px-4 py-4 border-t border-t-gray-200;
+			}
+		}
+	}
+}

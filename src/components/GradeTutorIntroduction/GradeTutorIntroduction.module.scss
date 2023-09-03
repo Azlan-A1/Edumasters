@@ -1,0 +1,15 @@
+.base {
+	@apply flex space-x-12;
+
+	.tutor_info {
+		@apply whitespace-nowrap;
+
+		.tutor_image {
+			@apply h-24 w-24 rounded-full bg-gray-200 mb-4;
+		}
+	}
+
+	.tutor_intro {
+		@apply mt-4 space-y-4;
+	}
+}
