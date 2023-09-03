@@ -7,8 +7,8 @@ import classNames from 'classnames'
 interface GradePricingTableProps {}
 
 interface PricingItemProps {
-	title: string
-	description: string
+	title?: string
+	description?: string
 	featured?: boolean
 }
 
