@@ -1,14 +1,16 @@
 .base {
+	@apply shadow-md;
+
 	.content {
 		@apply container h-14;
 		@apply flex items-center;
 
 		.logo {
-			@apply relative w-10 h-10;
+			@apply relative h-10 w-36;
 		}
 
-		ul {
-			@apply flex items-center space-x-8 ml-12;
+		ul.links {
+			@apply flex items-center space-x-8 mx-auto text-sm;
 
 			li {
 				a {
@@ -18,15 +20,26 @@
 		}
 
 		.cta {
-			@apply ml-auto;
+			@apply flex items-center ml-auto space-x-2;
 
 			button {
-				@apply block h-14 px-4;
-				@apply bg-gradient-to-r from-pink-500 to-pink-600 transition-colors;
-				@apply text-white font-medium;
+				@apply block py-2 rounded shadow transition-colors text-sm;
 
-				&:hover {
-					@apply bg-gradient-to-r from-pink-600 to-pink-700;
+				&#account {
+					@apply px-4 bg-pink-500 text-white;
+
+					&:hover {
+						@apply bg-gradient-to-r from-pink-500 to-pink-600;
+						@apply shadow-lg;
+					}
+				}
+
+				&#search {
+					@apply px-2 text-pink-500 shadow transition-shadow;
+
+					&:hover {
+						@apply shadow-lg;
+					}
 				}
 			}
 		}

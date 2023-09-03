@@ -6,7 +6,10 @@ import Link from 'next/link'
 import styles from './Navigation.module.scss'
 
 // Assets
-import logo from '@/assets/brand/edumasters_logo.svg'
+import logo from '@/assets/brand/edumasters_horizontal.svg'
+
+// Icons
+import { IconSearch } from '@tabler/icons-react'
 
 const Navigation = () => {
 	const links = [
@@ -30,10 +33,6 @@ const Navigation = () => {
 			name: 'Contact',
 			path: '/contact',
 		},
-		{
-			name: 'Product Page',
-			path: '/product',
-		},
 	]
 
 	return (
@@ -44,7 +43,7 @@ const Navigation = () => {
 						<Image src={logo} alt='Edumasters Logo' fill />
 					</div>
 				</Link>
-				<ul>
+				<ul className={styles.links}>
 					{links.map((link, index) => (
 						<li key={index}>
 							<Link href={link.path}>{link.name}</Link>
@@ -52,7 +51,12 @@ const Navigation = () => {
 					))}
 				</ul>
 				<div className={styles.cta}>
-					<button>Contact Us</button>
+					<button id={styles.search}>
+						<IconSearch size={20} />
+					</button>
+					<Link href='/account'>
+						<button id={styles.account}>Login/Register</button>
+					</Link>
 				</div>
 			</div>
 		</div>

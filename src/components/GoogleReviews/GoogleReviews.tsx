@@ -2,6 +2,9 @@
 import Image from 'next/image'
 import styles from './GoogleReviews.module.scss'
 
+// Assets
+import googleLogo from '@/assets/vectors/google_logo.svg'
+
 // Icons
 import { IconBrandGoogle, IconStarFilled } from '@tabler/icons-react'
 
@@ -45,7 +48,7 @@ const GoogleReviews = async () => {
 						</div>
 					</div>
 					<div className={styles.review_details}>
-						<IconBrandGoogle stroke={4} />
+						<Image src={googleLogo} alt='Google Logo' width={80} height={0} />
 					</div>
 				</div>
 				<div className={styles.review_body}>

@@ -6,25 +6,13 @@
 		@apply h-full w-full absolute -z-10;
 
 		img {
-			@apply object-cover;
+			@apply object-cover rounded-b-3xl;
 		}
 	}
 
 	.content {
-		@apply container px-4;
-
-		.content_grid {
-			@apply grid grid-cols-1 md:grid-cols-2 gap-4;
-
-			.column_1,
-			.column_2 .box {
-				@apply space-y-6;
-			}
-
-			.column_1 {
-				@apply flex flex-col justify-center;
-			}
-		}
+		@apply container px-4 space-y-6 bg-black/50 w-fit mr-auto py-6 rounded-lg;
+		@apply flex flex-col items-center;
 
 		.title {
 			@apply text-4xl font-bold text-white;
@@ -39,7 +27,24 @@
 		}
 
 		.form {
-			@apply flex items-center space-x-2;
+			@apply bg-white px-1 py-1 rounded-lg w-full max-w-sm;
+			@apply flex items-center space-x-1;
+
+			input {
+				@apply px-1 py-1 w-full;
+
+				&:focus {
+					@apply outline-none;
+				}
+			}
+
+			button {
+				@apply bg-black px-4 py-1 rounded-md transition-colors text-white;
+
+				&:hover {
+					@apply bg-pink-500;
+				}
+			}
 		}
 
 		.box {

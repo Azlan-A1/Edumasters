@@ -72,11 +72,11 @@ export default async function Grade({ params }: any) {
 
 			<div className='bg-black border-y-4 border-y-pink-500 py-12 mb-7'>
 				<div className='relative container text-white'>
-					<p className='text-3xl font-medium text-center uppercase'>
+					<p className='text-3xl font-medium font-lexend text-center uppercase'>
 						At Edumasters, we prioritize
 					</p>
 					<div className='absolute -bottom-20 left-1/2 -translate-x-1/2 bg-pink-500 border-4 border-black px-8 py-2'>
-						<p className='text-4xl font-medium whitespace-nowrap'>
+						<p className='text-4xl font-medium font-lexend whitespace-nowrap'>
 							MAXIUMUM RESULTS, MINIMUM TIME.
 						</p>
 					</div>

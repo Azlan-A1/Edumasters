@@ -1,17 +1,27 @@
-// Next
+// Types
 import type { Metadata } from 'next'
 
+// Next
+import Link from 'next/link'
+
 // Fonts
-import { Heebo } from 'next/font/google'
+import { Heebo, Lalezar } from 'next/font/google'
 
 // Components
+import Banner from '@/components/Banner'
 import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 
 // Styles
 import '@/styles/main.scss'
+import classNames from 'classnames'
 
 const heebo = Heebo({ subsets: ['latin'] })
+const lexend = Lalezar({
+	subsets: ['latin'],
+	weight: '400',
+	variable: '--font-lexend',
+})
 
 export const metadata: Metadata = {
 	title: 'Edumasters',
@@ -25,7 +35,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={heebo.className}>
+			<body className={classNames(heebo.className, lexend.variable)}>
+				<Banner>
+					<p>
+						Are you a private tutor looking for a partnership?{' '}
+						<Link href='/contact'>Get in touch!</Link>
+					</p>
+				</Banner>
 				<Navigation />
 				{children}
 				<Footer />

@@ -11,6 +11,9 @@ const config: Config = {
 			container: {
 				center: true,
 			},
+			fontFamily: {
+				lexend: ['var(--font-lexend)'],
+			},
 		},
 	},
 	plugins: [],
