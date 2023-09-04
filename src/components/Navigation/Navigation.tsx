@@ -9,7 +9,8 @@ import styles from './Navigation.module.scss'
 import { MobileNavigation } from './Navigation.client'
 
 // Assets
-import logo from '@/assets/brand/edumasters_horizontal.svg'
+import logoHorizontal from '@/assets/brand/edumasters_horizontal.svg'
+import logoIcon from '@/assets/brand/edumasters_logo.svg'
 
 // Icons
 import { IconSearch } from '@tabler/icons-react'
@@ -38,11 +39,13 @@ const Navigation = () => {
 		<div className={styles.base}>
 			<div className={styles.content}>
 				<Link href='/'>
-					<div className={styles.logo}>
-						<Image src={logo} alt='Edumasters Logo' fill />
+					<div className={styles.logo_desktop}>
+						<Image src={logoHorizontal} alt='Edumasters Logo' fill />
+					</div>
+					<div className={styles.logo_mobile}>
+						<Image src={logoIcon} alt='Edumasters Logo' fill />
 					</div>
 				</Link>
-				<MobileNavigation links={links} />
 				<ul className={styles.links}>
 					{links.map((link, index) => (
 						<li key={index}>
@@ -57,6 +60,7 @@ const Navigation = () => {
 					<Link href='/account'>
 						<button id={styles.account}>Login/Register</button>
 					</Link>
+					<MobileNavigation links={links} />
 				</div>
 			</div>
 		</div>

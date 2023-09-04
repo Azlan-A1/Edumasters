@@ -2,6 +2,6 @@
 	@apply bg-pink-500 py-2;
 
 	.content {
-		@apply container text-center text-white;
+		@apply container text-center text-white text-sm md:text-base px-2;
 	}
 }

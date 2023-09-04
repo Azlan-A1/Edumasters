@@ -2,15 +2,22 @@
 	@apply shadow-md;
 
 	.content {
-		@apply container h-14;
+		@apply container h-14 px-2;
 		@apply flex items-center;
 
-		.logo {
+		.logo_desktop {
 			@apply relative h-10 w-36;
+			@apply hidden md:block;
+		}
+
+		.logo_mobile {
+			@apply relative h-10 w-10;
+			@apply block md:hidden;
 		}
 
 		ul.links {
-			@apply flex items-center space-x-8 mx-auto text-sm;
+			@apply items-center space-x-8 mx-auto text-sm;
+			@apply hidden md:flex;
 
 			li {
 				a {
