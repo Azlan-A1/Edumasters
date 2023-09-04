@@ -1,0 +1,8 @@
+.base {
+	@apply py-24;
+
+	.content {
+		@apply container;
+		@apply text-center;
+	}
+}

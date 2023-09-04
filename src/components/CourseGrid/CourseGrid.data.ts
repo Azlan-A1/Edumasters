@@ -2,11 +2,11 @@ export const courses = [
 	[
 		{
 			name: 'ACT*',
-			path: '/course/act',
+			path: '/exam/act',
 		},
 		{
 			name: 'AP*',
-			path: '/course/ap',
+			path: '/exam/ap',
 		},
 		{
 			name: 'Academic',
@@ -18,53 +18,53 @@ export const courses = [
 		},
 		{
 			name: 'SAT*',
-			path: '/course/sat',
+			path: '/exam/sat',
 		},
 		{
 			name: 'SHSAT*',
-			path: '/course/shsat',
+			path: '/exam/shsat',
 		},
 		{
 			name: 'SSAT*',
-			path: '/course/ssat',
+			path: '/exam/ssat',
 		},
 		{
 			name: 'TOEFL*',
-			path: '/course/toefl',
+			path: '/exam/toefl',
 		},
 		{
 			name: 'Digital SAT*',
-			path: '/course/digital-sat',
+			path: '/exam/digital-sat',
 		},
 		{
 			name: 'Digital PSAT*',
-			path: '/course/digital-psat',
+			path: '/exam/digital-psat',
 		},
 		{
 			name: 'ISEE*',
-			path: '/course/isee',
+			path: '/exam/isee',
 		},
 	],
 	[
 		{
 			name: 'MCAT*',
-			path: '/course/mcat',
+			path: '/exam/mcat',
 		},
 		{
 			name: 'DAT*',
-			path: '/course/dat',
+			path: '/exam/dat',
 		},
 		{
 			name: 'OAT*',
-			path: '/course/oat',
+			path: '/exam/oat',
 		},
 		{
 			name: 'LSAT*',
-			path: '/course/lsat',
+			path: '/exam/lsat',
 		},
 		{
 			name: 'GMAT*',
-			path: '/course/gmat',
+			path: '/exam/gmat',
 		},
 	],
 ]

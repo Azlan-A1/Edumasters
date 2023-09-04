@@ -1,7 +1,9 @@
+import PageHeader from '@/components/PageHeader'
+
 export default function Contact() {
 	return (
 		<div>
-			<h1>Contact</h1>
+			<PageHeader title='Contact our friendly team' />
 		</div>
 	)
 }

@@ -7,7 +7,7 @@
 		}
 
 		.table {
-			@apply grid grid-cols-4 gap-12;
+			@apply grid grid-cols-3 gap-12;
 
 			.pricing_item {
 				@apply px-2 py-8 text-center transition-colors;

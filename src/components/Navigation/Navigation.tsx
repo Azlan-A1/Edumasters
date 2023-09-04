@@ -5,36 +5,35 @@ import Link from 'next/link'
 // Styles
 import styles from './Navigation.module.scss'
 
+// Components
+import { MobileNavigation } from './Navigation.client'
+
 // Assets
 import logo from '@/assets/brand/edumasters_horizontal.svg'
 
 // Icons
 import { IconSearch } from '@tabler/icons-react'
 
-const Navigation = () => {
-	const links = [
-		{
-			name: 'Home',
-			path: '/',
-		},
-		{
-			name: 'Services',
-			path: '/services',
-		},
-		{
-			name: 'Pricing',
-			path: '/pricing',
-		},
-		{
-			name: 'Testimonials',
-			path: '/testimonials',
-		},
-		{
-			name: 'Contact',
-			path: '/contact',
-		},
-	]
+const links = [
+	{
+		name: 'Home',
+		path: '/',
+	},
+	{
+		name: 'Services',
+		path: '/services',
+	},
+	{
+		name: 'Pricing',
+		path: '/pricing',
+	},
+	{
+		name: 'Contact',
+		path: '/contact',
+	},
+]
 
+const Navigation = () => {
 	return (
 		<div className={styles.base}>
 			<div className={styles.content}>
@@ -43,6 +42,7 @@ const Navigation = () => {
 						<Image src={logo} alt='Edumasters Logo' fill />
 					</div>
 				</Link>
+				<MobileNavigation links={links} />
 				<ul className={styles.links}>
 					{links.map((link, index) => (
 						<li key={index}>

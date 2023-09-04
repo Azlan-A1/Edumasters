@@ -4,15 +4,15 @@ export const footerNavigation = [
 		links: [
 			{
 				name: 'SAT',
-				href: '/course/sat',
+				href: '/exam/sat',
 			},
 			{
 				name: 'ACT',
-				href: '/course/act',
+				href: '/exam/act',
 			},
 			{
 				name: 'PSAT',
-				href: '/course/psat',
+				href: '/exam/psat',
 			},
 		],
 	},
@@ -21,19 +21,19 @@ export const footerNavigation = [
 		links: [
 			{
 				name: 'GRE',
-				href: '/course/gre',
+				href: '/exam/gre',
 			},
 			{
 				name: 'GMAT',
-				href: '/course/gmat',
+				href: '/exam/gmat',
 			},
 			{
 				name: 'LSAT',
-				href: '/course/lsat',
+				href: '/exam/lsat',
 			},
 			{
 				name: 'MCAT',
-				href: '/course/mcat',
+				href: '/exam/mcat',
 			},
 		],
 	},

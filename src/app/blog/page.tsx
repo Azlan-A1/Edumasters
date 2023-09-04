@@ -1,9 +1,11 @@
+// Components
 import BlogGrid from '@/components/BlogGrid/BlogGrid'
+import PageHeader from '@/components/PageHeader'
 
 export default function Blog() {
 	return (
 		<div>
-			<p>This is the main Blog Page.</p>
+			<PageHeader title='Blog' />
 
 			<BlogGrid />
 		</div>

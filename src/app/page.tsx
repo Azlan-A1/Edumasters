@@ -18,6 +18,11 @@ export default function Home() {
 		<div className='space-y-12'>
 			<Jumbotron />
 			<CourseGrid />
+			<div className='container grid grid-cols-2 gap-12'>
+				<div className='h-24 w-full bg-gray-100 rounded' />
+				<div className='h-24 w-full bg-gray-100 rounded' />
+			</div>
+
 			<div className='container flex items-center space-x-16'>
 				<div className='relative h-56 w-96'>
 					<Image src={roadToKnowledge} alt='Road to knowledge' fill />
@@ -34,6 +39,7 @@ export default function Home() {
 					<Button variant='primary'>See the 2024 Best Colleges</Button>
 				</div>
 			</div>
+
 			<ServicesGrid />
 			<USPs />
 

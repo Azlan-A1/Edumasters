@@ -43,7 +43,6 @@ const GradePricingTable = () => {
 					<PricingItem title='Standard' />
 					<PricingItem title='Guaranteed Pass*' featured />
 					<PricingItem />
-					<PricingItem />
 				</div>
 				<p className={styles.disclaimer}>
 					*Please see our full terms and conditions for details.
