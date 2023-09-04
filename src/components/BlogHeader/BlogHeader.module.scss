@@ -1,0 +1,45 @@
+.base {
+	.content {
+		@apply container border-b py-20 mb-12;
+
+		.back_link {
+			@apply flex items-center space-x-2 transition-colors;
+
+			span {
+				@apply block;
+			}
+
+			&:hover {
+				@apply text-pink-500;
+			}
+		}
+
+		.title {
+			@apply mb-6 mt-2;
+		}
+
+		.meta {
+			@apply flex items-center;
+
+			.author_avatar {
+				@apply h-12 w-12 rounded-full relative overflow-hidden;
+
+				img {
+					@apply object-cover;
+				}
+			}
+
+			.details {
+				@apply ml-4;
+
+				.author_name {
+					@apply font-medium;
+				}
+
+				.date {
+					@apply text-sm;
+				}
+			}
+		}
+	}
+}

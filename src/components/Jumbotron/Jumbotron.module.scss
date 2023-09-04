@@ -31,7 +31,7 @@
 			@apply flex items-center space-x-1;
 
 			input {
-				@apply px-1 py-1 w-full;
+				@apply px-2 py-1 w-full;
 
 				&:focus {
 					@apply outline-none;

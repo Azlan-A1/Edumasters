@@ -1,3 +1,6 @@
+// Next
+import Image from 'next/image'
+
 // Components
 import BlogGrid from '@/components/BlogGrid/BlogGrid'
 import Button from '@/components/Button'
@@ -8,9 +11,7 @@ import ServicesGrid from '@/components/ServicesGrid'
 import USPs from '@/components/USPs'
 
 // Assets
-import magazine from '@/assets/images/magazine.webp'
 import roadToKnowledge from '@/assets/illustrations/road_to_knowledge.svg'
-import Image from 'next/image'
 
 export default function Home() {
 	return (
@@ -35,7 +36,17 @@ export default function Home() {
 			</div>
 			<ServicesGrid />
 			<USPs />
-			<BlogGrid />
+
+			<div className='container'>
+				<BlogGrid />
+
+				<div className='text-center space-y-4'>
+					<p>We would love to hear from you!</p>
+					<Button rounded className='mx-auto'>
+						Get in Touch
+					</Button>
+				</div>
+			</div>
 		</div>
 	)
 }

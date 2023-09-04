@@ -9,6 +9,7 @@ interface ButtonProps {
 	type?: 'button' | 'submit'
 	variant?: 'default' | 'primary' | 'secondary' | 'tertiary'
 	rounded?: boolean
+	className?: string
 }
 
 const Button = (props: ButtonProps) => {
@@ -19,6 +20,7 @@ const Button = (props: ButtonProps) => {
 			type={type}
 			className={classNames(
 				styles.base,
+				props.className,
 				{
 					[styles.default]: props.variant === 'default' || !props.variant,
 					[styles.primary]: props.variant === 'primary',

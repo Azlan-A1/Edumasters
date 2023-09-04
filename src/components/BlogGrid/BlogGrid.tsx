@@ -1,5 +1,13 @@
+// Types
+import { Blog } from '@/types/blog'
+
 // Next
 import Image from 'next/image'
+import Link from 'next/link'
+
+// GraphQL
+import { gql } from 'graphql-request'
+import { hygraph } from '@/lib/graphql'
 
 // Components
 import Button from '../Button'
@@ -12,36 +20,64 @@ import graduation from '@/assets/images/graduation.webp'
 
 // Packages
 import classNames from 'classnames'
+import dayjs from 'dayjs'
 
-const BlogGrid = () => {
-	const BlogItem = () => {
+interface BlogItemProps {
+	data: Blog
+}
+
+const BlogGrid = async () => {
+	const blogs = await getBlogPosts()
+
+	const BlogItem = (props: BlogItemProps) => {
 		return (
-			<div className={styles.blog_item}>
-				<div className={styles.blog_image}>
-					<Image src={graduation} alt='Graduation - #SEO' fill />
+			<Link href={`/blog/${props.data.slug}`}>
+				<div className={styles.blog_item}>
+					<div className={styles.blog_image}>
+						<Image src={graduation} alt='Graduation - #SEO' fill />
+					</div>
+					<div className={styles.blog_content}>
+						<h6 className={styles.blog_title}>{props.data.title}</h6>
+						<p className={styles.blog_meta}>
+							Posted {dayjs(props.data.createdAt).format('MMMM D, YYYY')}
+						</p>
+					</div>
 				</div>
-				<div className={styles.blog_content}>
-					<h6 className={styles.blog_title}>Graduation - #SEO</h6>
-					<p className={styles.blog_meta}>Posted 4 days ago</p>
-				</div>
-			</div>
+			</Link>
 		)
 	}
 
 	return (
 		<div className={styles.base}>
 			<div className={styles.content}>
-				<BlogItem />
-				<BlogItem />
-				<BlogItem />
-				<BlogItem />
-			</div>
-			<div className={classNames(styles.content, styles.content_cta)}>
-				<p>We would love to hear from you!</p>
-				<Button rounded>Get in Touch</Button>
+				{blogs.map((blog, index) => (
+					<BlogItem key={index} data={blog} />
+				))}
 			</div>
 		</div>
 	)
+}
+
+async function getBlogPosts() {
+	const QUERY = gql`
+		query GetAllBlogPosts {
+			blogs {
+				title
+				slug
+				createdBy {
+					name
+					picture
+				}
+				createdAt
+			}
+		}
+	`
+
+	const data = await hygraph.request(QUERY)
+
+	const { blogs } = data as { blogs: Blog[] }
+
+	return blogs
 }
 
 export default BlogGrid
