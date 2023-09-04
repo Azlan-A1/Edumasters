@@ -53,12 +53,12 @@ export const MobileNavigation = (props: MobileNavigationProps) => {
 			{isOpen &&
 				createPortal(
 					<motion.div
-						className='fixed flex flex-col h-screen w-full bg-white left-0 top-0 z-50 max-w-lg -translate-x-2'
+						className='fixed flex flex-col h-screen w-full bg-white left-0 top-0 z-50 max-w-lg -translate-x-2 shadow-2xl'
 						initial={{ opacity: 0, x: '-100vw' }}
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: '-100vw' }}
 						transition={{
-							type: 'just',
+							type: 'tween',
 						}}
 					>
 						<div className='flex items-center justify-between p-4'>

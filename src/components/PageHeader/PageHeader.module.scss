@@ -4,5 +4,13 @@
 	.content {
 		@apply container;
 		@apply text-center;
+
+		.subtitle {
+			@apply text-lg mt-4 font-medium;
+		}
+
+		.actions {
+			@apply flex items-center justify-center space-x-4 mt-4;
+		}
 	}
 }

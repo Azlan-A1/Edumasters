@@ -3,6 +3,8 @@ import styles from './PageHeader.module.scss'
 
 interface PageHeaderProps {
 	title: string
+	subtitle?: string
+	actions?: React.ReactNode
 }
 
 const PageHeader = (props: PageHeaderProps) => {
@@ -10,6 +12,8 @@ const PageHeader = (props: PageHeaderProps) => {
 		<div className={styles.base}>
 			<div className={styles.content}>
 				<h1>{props.title}</h1>
+				{props.subtitle && <p className={styles.subtitle}>{props.subtitle}</p>}
+				{props.actions && <div className={styles.actions}>{props.actions}</div>}
 			</div>
 		</div>
 	)

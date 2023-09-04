@@ -52,6 +52,7 @@ const Footer = () => {
 						<div className={styles.socials}>
 							{socialProfiles.map((social, index) => (
 								<SocialIcon
+									key={index}
 									network={social.network}
 									url={social.url}
 									target='_blank'

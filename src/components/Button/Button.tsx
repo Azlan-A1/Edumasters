@@ -10,6 +10,7 @@ interface ButtonProps {
 	variant?: 'default' | 'primary' | 'secondary' | 'tertiary'
 	rounded?: boolean
 	className?: string
+	onClick?: () => void
 }
 
 const Button = (props: ButtonProps) => {
@@ -31,6 +32,7 @@ const Button = (props: ButtonProps) => {
 					[styles.button_rounded]: props.rounded,
 				}
 			)}
+			onClick={props.onClick}
 		>
 			{props.children}
 		</button>

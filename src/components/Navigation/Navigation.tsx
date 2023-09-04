@@ -2,6 +2,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+// NextAuth
+import { getServerSession } from 'next-auth'
+
+// Lib
+import { authOptions } from '@/lib/auth'
+
 // Styles
 import styles from './Navigation.module.scss'
 
@@ -13,7 +19,7 @@ import logoHorizontal from '@/assets/brand/edumasters_horizontal.svg'
 import logoIcon from '@/assets/brand/edumasters_logo.svg'
 
 // Icons
-import { IconSearch } from '@tabler/icons-react'
+import { IconSearch, IconUserCircle } from '@tabler/icons-react'
 
 const links = [
 	{
@@ -34,7 +40,11 @@ const links = [
 	},
 ]
 
-const Navigation = () => {
+const Navigation = async () => {
+	const session = await getServerSession(authOptions)
+
+	console.log(session)
+
 	return (
 		<div className={styles.base}>
 			<div className={styles.content}>
@@ -57,9 +67,18 @@ const Navigation = () => {
 					<button id={styles.search}>
 						<IconSearch size={20} />
 					</button>
-					<Link href='/account'>
-						<button id={styles.account}>Login/Register</button>
-					</Link>
+					{!session?.user ? (
+						<Link href='/login'>
+							<button id={styles.account}>Login/Register</button>
+						</Link>
+					) : (
+						<Link href='/account'>
+							<button id={styles.search} className='flex items-center'>
+								<IconUserCircle className='inline mr-1' />
+								{session.user.name}
+							</button>
+						</Link>
+					)}
 					<MobileNavigation links={links} />
 				</div>
 			</div>

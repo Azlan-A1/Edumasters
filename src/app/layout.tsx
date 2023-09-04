@@ -15,6 +15,7 @@ import Navigation from '@/components/Navigation'
 // Styles
 import '@/styles/main.scss'
 import classNames from 'classnames'
+import RootProvider from './providers'
 
 const heebo = Heebo({ subsets: ['latin'] })
 const lexend = Lalezar({
@@ -36,16 +37,18 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={classNames(heebo.className, lexend.variable)}>
-				<Banner>
-					<p>
-						Are you a private tutor looking for a partnership?{' '}
-						<Link href='/contact'>Get in touch!</Link>
-					</p>
-				</Banner>
-				<Navigation />
-				{children}
-				<Footer />
-				<div id='navigation_portal' />
+				<RootProvider>
+					<Banner>
+						<p>
+							Are you a private tutor looking for a partnership?{' '}
+							<Link href='/contact'>Get in touch!</Link>
+						</p>
+					</Banner>
+					<Navigation />
+					{children}
+					<Footer />
+					<div id='navigation_portal' />
+				</RootProvider>
 			</body>
 		</html>
 	)
