@@ -1,0 +1,9 @@
+.base {
+	.timeslot_button {
+		@apply border rounded;
+	}
+
+	.booknow_button {
+		@apply border rounded w-full;
+	}
+}

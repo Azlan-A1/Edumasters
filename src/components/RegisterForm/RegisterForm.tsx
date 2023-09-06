@@ -16,6 +16,7 @@ const RegisterForm = () => {
 			email: '',
 			password: '',
 			password_confirm: '',
+			name: '',
 		},
 	})
 
@@ -43,6 +44,12 @@ const RegisterForm = () => {
 				id='password_confirm'
 				placeholder='Confirm your password'
 				register={register('password_confirm')}
+			/>
+			<Input.TextInput
+				type='text'
+				id='name'
+				placeholder='Enter your name'
+				register={register('name')}
 			/>
 			<Button type='submit' className='ml-auto'>
 				Create Account

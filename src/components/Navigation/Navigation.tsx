@@ -43,8 +43,6 @@ const links = [
 const Navigation = async () => {
 	const session = await getServerSession(authOptions)
 
-	console.log(session)
-
 	return (
 		<div className={styles.base}>
 			<div className={styles.content}>
@@ -64,9 +62,6 @@ const Navigation = async () => {
 					))}
 				</ul>
 				<div className={styles.cta}>
-					<button id={styles.search}>
-						<IconSearch size={20} />
-					</button>
 					{!session?.user ? (
 						<Link href='/login'>
 							<button id={styles.account}>Login/Register</button>

@@ -1,11 +1,11 @@
 .base {
-	@apply flex space-x-12;
+	@apply block md:flex md:space-x-12;
 
 	.tutor_info {
-		@apply whitespace-nowrap;
+		@apply whitespace-nowrap sticky top-0 h-fit text-center md:text-left;
 
 		.tutor_image {
-			@apply h-24 w-24 rounded-full bg-gray-200 mb-4;
+			@apply h-24 w-24 rounded-full bg-gray-200 mb-4 mx-auto;
 		}
 	}
 

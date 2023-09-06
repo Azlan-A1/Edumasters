@@ -10,6 +10,11 @@ export const socialProfiles = [
 		url: 'https://twitter.com/Edumasters_',
 	},
 	{
+		name: 'YouTube',
+		network: 'youtube',
+		url: 'https://www.youtube.com/channel/UC-nfgjhUyCfgi1CX9OGOm7Q',
+	},
+	{
 		name: 'Instagram',
 		network: 'instagram',
 		url: 'https://www.instagram.com/edumastersusandca/',

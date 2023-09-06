@@ -99,8 +99,7 @@ export default async function Grade({ params }: any) {
 				<div className='container px-8'>
 					<h2 className='text-center'>Meet your Edumasters Tutor</h2>
 					<h6 className='text-center mb-6'>
-						Our students see results. This is why we have thrived for over 35+
-						years.
+						Introducing Azlan Ahmad - Your Professional {data.title} Tutor
 					</h6>
 					<GradeTutorIntroduction />
 				</div>
@@ -120,6 +119,16 @@ export default async function Grade({ params }: any) {
 					We have helped thousands of students achieve their goals.
 				</h6>
 				<GoogleReviews />
+			</div>
+
+			<div className='container py-12'>
+				<h2 className='text-center'>Prepare for your {data.title} exam!</h2>
+				<h6 className='text-center mb-6'>
+					Succeed on your {data.title} exam with our expert tutors at
+					Edumasters.
+				</h6>
+
+				<GradePricingTable />
 			</div>
 
 			{/* Debug 

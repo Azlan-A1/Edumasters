@@ -10,7 +10,7 @@ import { footerNavigation } from './Footer.data'
 import { socialProfiles } from '@/data/social-media'
 
 // Assets
-import logo from '@/assets/brand/edumasters_logo.svg'
+import logo from '@/assets/brand/edumasters_horizontal.svg'
 
 // Packages
 import { SocialIcon } from 'react-social-icons'
@@ -39,15 +39,8 @@ const Footer = () => {
 						<div className={styles.logo}>
 							<Image src={logo} alt='Edumasters Logo' fill />
 						</div>
-						<p>
+						<p className='mb-8'>
 							&copy; {new Date().getFullYear()} Edumasters. All Rights Reserved.
-						</p>
-						<p className={styles.meta}>
-							React Tutorial LLC is controlled and operated by React Tutoring
-							LLC, a firm owned by Edumasters. Edumasters is a registered
-							trademark of Edumasters. All other trademarks, service marks, and
-							logos used on Edumasters are the trademarks, service marks, or
-							logos of their respective owners.
 						</p>
 						<div className={styles.socials}>
 							{socialProfiles.map((social, index) => (

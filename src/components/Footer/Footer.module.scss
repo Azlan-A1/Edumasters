@@ -11,15 +11,11 @@
 			@apply space-y-4 md:space-y-0;
 
 			.logo {
-				@apply h-20 w-20 relative mb-8;
+				@apply h-20 w-56 relative mb-2;
 
 				img {
 					@apply object-contain;
 				}
-			}
-
-			.meta {
-				@apply text-xs text-gray-500 my-4;
 			}
 
 			.socials {

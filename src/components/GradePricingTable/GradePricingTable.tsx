@@ -1,3 +1,6 @@
+// Next
+import Link from 'next/link'
+
 // Styles
 import styles from './GradePricingTable.module.scss'
 
@@ -31,7 +34,9 @@ const GradePricingTable = () => {
 				<p className={styles.description}>
 					{props.description || 'Increase your score. Guaranteed!*'}
 				</p>
-				<button className={styles.buy_button}>Learn More</button>
+				<Link href='/book-now?grade=act?id=guaranteed-pass'>
+					<button className={styles.buy_button}>Book Now</button>
+				</Link>
 			</div>
 		)
 	}
