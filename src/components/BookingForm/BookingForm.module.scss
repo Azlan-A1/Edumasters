@@ -1,9 +1,42 @@
 .base {
-	.timeslot_button {
-		@apply border rounded;
+	.sessions {
+		@apply w-full;
+
+		input {
+			@apply border rounded px-2 py-1 w-full;
+		}
 	}
 
-	.booknow_button {
-		@apply border rounded w-full;
+	.timeslot_buttons {
+		@apply grid grid-cols-2 gap-2;
+
+		button {
+			@apply border rounded py-1 transition-all;
+
+			&:hover {
+				@apply bg-gray-100;
+			}
+
+			&.selected {
+				@apply bg-pink-500 border-pink-600 text-white;
+			}
+		}
+	}
+
+	.booking_confirmation {
+		@apply border-b pb-4 mb-4;
+	}
+
+	.booking_form {
+		@apply space-y-2;
+	}
+
+	.booking_button {
+		@apply border rounded w-full mt-4 py-2 transition-all;
+		@apply bg-pink-500 border border-pink-600 text-white;
+
+		&:hover {
+			@apply bg-pink-600 shadow-xl;
+		}
 	}
 }

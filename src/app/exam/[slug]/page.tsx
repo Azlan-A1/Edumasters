@@ -1,5 +1,5 @@
 // Types
-import { Grade } from '@/types/grade'
+import { Grade } from '@/types/grade.types'
 
 // GraphQL
 import { gql } from 'graphql-request'

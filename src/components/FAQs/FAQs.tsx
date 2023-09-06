@@ -1,5 +1,5 @@
 // Styles
-import { Grade } from '@/types/grade'
+import { Grade } from '@/types/grade.types'
 import styles from './FAQs.module.scss'
 import { Accordion } from './FAQs.client'
 

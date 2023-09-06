@@ -1,5 +1,5 @@
 // Types
-import { Blog } from '@/types/blog'
+import { Blog } from '@/types/blog.types'
 
 // GraphQL
 import { gql } from 'graphql-request'

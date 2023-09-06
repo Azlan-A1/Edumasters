@@ -1,5 +1,5 @@
 // Types
-import { Blog } from '@/types/blog'
+import { Blog } from '@/types/blog.types'
 
 // Next
 import Image from 'next/image'

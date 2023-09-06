@@ -34,7 +34,7 @@ const GradePricingTable = () => {
 				<p className={styles.description}>
 					{props.description || 'Increase your score. Guaranteed!*'}
 				</p>
-				<Link href='/book-now?grade=act?id=guaranteed-pass'>
+				<Link href='/book-now?type=act&option=guaranteed-pass'>
 					<button className={styles.buy_button}>Book Now</button>
 				</Link>
 			</div>

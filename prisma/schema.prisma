@@ -6,16 +6,61 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("NEXT_PUBLIC_DATABASE_URL")
+  provider = "postgresql"
+  url = env("NEXT_PUBLIC_DATABASE_URL")
 }
 
 model User {
-  id        String @id @default(uuid())
-  name      String
-  email     String @unique
-  password  String
-  roles     Role[]
+  id String @id @default(uuid()) @unique
+  name String
+  email String @unique
+  password String
+  roles Role[]
+
+  // Tutor Session Relations
+  tutorSessionsAsTutor TutorSession[] @relation("TutorSessionTutor")
+  tutorSessionsAsStudent TutorSession[] @relation("TutorSessionStudent")
+}
+
+model TutorSession {
+  id String @id @default(uuid()) @unique
+  type String
+  date DateTime
+  platform String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Tutor Relations
+  tutor User @relation("TutorSessionTutor", fields: [tutorId], references: [id])
+  tutorId String
+
+  // Student Relations
+  student User @relation("TutorSessionStudent", fields: [studentId], references: [id])
+  studentId String
+
+  // Stripe Payment Relations
+  payment StripePayment?
+}
+
+model StripePayment {
+  id String @id @default(uuid()) @unique
+  amount Int
+  status String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Tutor Session Relations
+  tutorSession TutorSession @relation(fields: [tutorSessionId], references: [id])
+  tutorSessionId String @unique
+}
+
+enum Platform {
+  ZOOM
+  GOOGLE_MEET
+  MICROSOFT_TEAMS
+  SKYPE
 }
 
 enum Role {
