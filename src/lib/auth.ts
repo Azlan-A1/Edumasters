@@ -40,16 +40,36 @@ export const authOptions: NextAuthOptions = {
 
 				if (!(await compare(credentials.password, user.password))) return null
 
-				return {
+				const { password, ...rest } = user
+
+				console.log({ rest })
+
+				const userObject = {
 					id: user.id,
 					name: user.name,
 					email: user.email,
-					randomKey: 'testing-random-key',
+					roles: user.roles,
 				}
+
+				return userObject
 			},
 		}),
 	],
 	callbacks: {
+		async jwt({ token, user }) {
+			if (user) {
+				token.roles = user.roles
+			}
+
+			return token
+		},
+		async session({ session, token }) {
+			if (token && session.user) {
+				session.user.roles = token.roles
+			}
+
+			return session
+		},
 		async redirect(params: { url: string }) {
 			const { url } = params
 

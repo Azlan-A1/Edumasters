@@ -3,8 +3,8 @@
 // React
 import { useState } from 'react'
 
-// Next
-import { useRouter } from 'next/navigation'
+// Next Auth
+import { signIn } from 'next-auth/react'
 
 // Components
 import Button from '@/components/Button'
@@ -12,7 +12,6 @@ import Input from '@/components/Input'
 
 // React Hook Form
 import { useForm } from 'react-hook-form'
-import { signIn } from 'next-auth/react'
 
 const RegisterForm = () => {
 	const { register, handleSubmit } = useForm({
@@ -23,8 +22,6 @@ const RegisterForm = () => {
 			name: '',
 		},
 	})
-
-	const router = useRouter()
 
 	const [error, setError] = useState<string>('')
 
@@ -72,7 +69,7 @@ const RegisterForm = () => {
 			<Input.TextInput
 				type='text'
 				id='name'
-				placeholder='Enter your name'
+				placeholder='Enter your Full Name'
 				register={register('name')}
 			/>
 			<Button type='submit' className='ml-auto'>
