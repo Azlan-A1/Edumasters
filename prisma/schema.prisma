@@ -32,8 +32,8 @@ model TutorSession {
   updatedAt DateTime @updatedAt
 
   // Tutor Relations
-  tutor User @relation("TutorSessionTutor", fields: [tutorId], references: [id])
-  tutorId String
+  tutor User? @relation("TutorSessionTutor", fields: [tutorId], references: [id])
+  tutorId String?
 
   // Student Relations
   student User @relation("TutorSessionStudent", fields: [studentId], references: [id])

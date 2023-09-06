@@ -7,8 +7,8 @@ import { prisma } from '@/lib/prisma'
 // Packages
 import { hash } from 'bcryptjs'
 
-export async function POST(req: Request) {
-	const data = await req.json()
+export async function POST(request: Request) {
+	const data = await request.json()
 
 	const { email, password, name, roles } = data
 

@@ -1,10 +1,9 @@
 // Next
+import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 // Next Auth
 import { getServerSession } from 'next-auth'
-
-// Lib
 import { authOptions } from '@/lib/auth'
 
 // Components
@@ -20,9 +19,13 @@ export default async function AccountPage() {
 		redirect('/login')
 	}
 
+	const tutorSessions = await getTutorSessions()
+
 	return (
 		<div>
 			<UserDashboardHeader subtitle={`👋🏼 Hello ${session.user.name}`} />
+
+			<div>{JSON.stringify(tutorSessions)}</div>
 
 			<div className='space-y-12'>
 				<div className='container px-4'>
@@ -92,4 +95,22 @@ export default async function AccountPage() {
 			</div>
 		</div>
 	)
+}
+
+async function getTutorSessions() {
+	try {
+		const response = await fetch(
+			process.env.NEXT_PUBLIC_BASE_URL + '/api/tutor-sessions',
+			{
+				method: 'GET',
+				headers: headers(),
+			}
+		)
+
+		const data = await response.json()
+
+		return data
+	} catch (error) {
+		console.error(error)
+	}
 }

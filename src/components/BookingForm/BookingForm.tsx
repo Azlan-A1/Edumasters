@@ -20,7 +20,7 @@ import './BookingForm.calendar.scss'
 import Input from '@/components/Input'
 
 // React Hook Form
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 
 // Packages
 import Calendar from 'react-calendar'
@@ -42,6 +42,13 @@ const availableTimes = [
 	'8:00 pm',
 ]
 
+const platformOptions = [
+	{ value: 'ZOOM', label: 'Zoom' },
+	{ value: 'GOOGLE_MEET', label: 'Google Meet' },
+	{ value: 'MICROSOFT_TEAMS', label: 'Microsoft Teams' },
+	{ value: 'SKYPE', label: 'Skype' },
+]
+
 const BookingForm = () => {
 	// the current session
 	const { data: session } = useSession()
@@ -60,14 +67,14 @@ const BookingForm = () => {
 	const option = useSearchParams().get('option')
 
 	// form data
-	const { register, getValues, setValue, handleSubmit } = useForm({
+	const { control, register, getValues, setValue, handleSubmit } = useForm({
 		defaultValues: {
 			exam_type: type,
 			exam_option: option,
 			sessions: 1,
 			user_id: session?.user?.id,
 			user_name: session?.user?.name,
-			platform: '',
+			platform: platformOptions[0],
 		},
 	})
 
@@ -92,28 +99,51 @@ const BookingForm = () => {
 
 	// handle form submit
 	const onSubmit = handleSubmit(async (data) => {
-		await fetch('/api/checkout/session', {
+		await fetch('/api/tutor-sessions/book', {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
+				type: data.exam_type,
+				user_id: data.user_id,
+				exam_option: data.exam_option,
 				sessions: data.sessions,
+				date: methodisedDateTime,
+				platform: data.platform.value,
 			}),
-		}).then(async (response) => {
-			const session = await response.json()
-
-			const stripe = await getStripe()
-
-			const { error } = (await stripe?.redirectToCheckout({
-				sessionId: session.id,
-			})) as any
-
-			if (error) {
-				console.error(error)
-			}
 		})
+			.then(async (response) => {
+				const data = await response.json()
+
+				console.log(data)
+			})
+			.catch((error) => {
+				console.error(error)
+			})
+
+		// await fetch('/api/checkout/session', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`,
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify({
+		// 		sessions: data.sessions,
+		// 	}),
+		// }).then(async (response) => {
+		// 	const session = await response.json()
+
+		// 	const stripe = await getStripe()
+
+		// 	const { error } = (await stripe?.redirectToCheckout({
+		// 		sessionId: session.id,
+		// 	})) as any
+
+		// 	if (error) {
+		// 		console.error(error)
+		// 	}
+		// })
 	})
 
 	// handle date and time change
@@ -219,19 +249,17 @@ const BookingForm = () => {
 									placeholder='Name'
 									register={register('user_name')}
 								/>
-								<Input.TextInput
-									id='platform'
-									placeholder='Platform'
-									register={register('platform')}
-								/>
-								<Select
-									options={[
-										{ value: 'ZOOM', label: 'Zoom' },
-										{ value: 'GOOGLE_MEET', label: 'Google Meet' },
-										{ value: 'MICROSOFT_TEAMS', label: 'Microsoft Teams' },
-										{ value: 'SKYPE', label: 'Skype' },
-									]}
-									className='select'
+								<Controller
+									name='platform'
+									control={control}
+									render={({ field: { ref } }) => (
+										<Select
+											placeholder='Select a platform'
+											options={platformOptions as any}
+											className='select'
+											ref={ref}
+										/>
+									)}
 								/>
 							</div>
 							<button type='submit' className={styles.booking_button}>

@@ -3,6 +3,9 @@
 // Types
 import { Role } from '@/types/auth.types'
 
+// Next
+import Link from 'next/link'
+
 // Next Auth
 import { signOut, useSession } from 'next-auth/react'
 
@@ -20,15 +23,18 @@ const UserDashboardHeader = (props: UserDashboardHeaderProps) => {
 	return (
 		<PageHeader
 			title='Welcome to Edumasters'
-			// subtitle={props.subtitle}
-			subtitle={JSON.stringify(session)}
+			subtitle={props.subtitle}
 			actions={
 				<>
-					{session?.user?.roles?.includes(Role['admin']) && (
-						<Button>Tutor Dashboard</Button>
+					{session?.user?.roles?.includes(Role['TUTOR']) && (
+						<Link href='/account/tutor'>
+							<Button>Tutor Dashboard</Button>
+						</Link>
 					)}
-					{session?.user?.roles?.includes(Role['admin']) && (
-						<Button>Admin Dashboard</Button>
+					{session?.user?.roles?.includes(Role['ADMIN']) && (
+						<Link href='/account/admin'>
+							<Button>Admin Dashboard</Button>
+						</Link>
 					)}
 					<Button onClick={() => signOut()}>Logout</Button>
 				</>

@@ -10,11 +10,11 @@ import { stripe } from '@/lib/stripe'
 // Prisma
 import { prisma } from '@/lib/prisma'
 
-export async function POST(req: Request) {
-	const data = await req.json()
+export async function POST(request: Request) {
+	const data = await request.json()
 
 	// get url we came from
-	const origin = req.headers.get('origin')
+	const origin = request.headers.get('origin')
 
 	const params: Stripe.Checkout.SessionCreateParams = {
 		mode: 'payment',

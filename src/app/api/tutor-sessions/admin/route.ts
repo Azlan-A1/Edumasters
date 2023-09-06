@@ -1,3 +1,6 @@
+// Types
+import { Role } from '@/types/auth.types'
+
 // Next
 import { NextResponse } from 'next/server'
 
@@ -11,28 +14,17 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: Request) {
 	const session = await getServerSession(authOptions)
 
-	if (!session?.user?.id) {
+	if (!session?.user?.id || !session?.user?.roles?.includes(Role['ADMIN'])) {
 		return NextResponse.json({
 			message: 'Not authenticated',
 		})
 	}
 
 	const tutorSessions = await prisma.tutorSession.findMany({
-		where: {
-			student: {
-				id: session.user.id,
-			},
-		},
 		orderBy: {
 			date: 'desc',
 		},
 	})
-
-	if (!tutorSessions) {
-		return NextResponse.json({
-			message: 'No sessions found',
-		})
-	}
 
 	return NextResponse.json(tutorSessions)
 }
