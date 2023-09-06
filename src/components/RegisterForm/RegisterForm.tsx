@@ -1,5 +1,8 @@
 'use client'
 
+// React
+import { useState } from 'react'
+
 // Next
 import { useRouter } from 'next/navigation'
 
@@ -9,6 +12,7 @@ import Input from '@/components/Input'
 
 // React Hook Form
 import { useForm } from 'react-hook-form'
+import { signIn } from 'next-auth/react'
 
 const RegisterForm = () => {
 	const { register, handleSubmit } = useForm({
@@ -22,12 +26,32 @@ const RegisterForm = () => {
 
 	const router = useRouter()
 
+	const [error, setError] = useState<string>('')
+
 	const onSubmit = handleSubmit((data) => {
-		router.push('/account')
+		fetch('/api/auth/register', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then(() => {
+				signIn('credentials', {
+					email: data.email,
+					password: data.password,
+					callbackUrl: `${window.location.origin}/account`,
+				})
+			})
+			.catch((error) => {
+				setError(error)
+			})
 	})
 
 	return (
 		<form onSubmit={onSubmit} className='space-y-2'>
+			{error && <div className=''>{JSON.stringify(error)}</div>}
+
 			<Input.TextInput
 				id='email'
 				placeholder='Enter your email address'
