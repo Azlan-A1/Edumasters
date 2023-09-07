@@ -30,6 +30,14 @@ const BlogGrid = async () => {
 	const blogs = await getBlogPosts()
 
 	const BlogItem = (props: BlogItemProps) => {
+		let date
+
+		if (props.data.dateOverride) {
+			date = dayjs(props.data.dateOverride).format('MMMM D, YYYY')
+		} else {
+			date = dayjs(props.data.createdAt).format('MMMM D, YYYY')
+		}
+
 		return (
 			<Link href={`/blog/${props.data.slug}`}>
 				<div className={styles.blog_item}>
@@ -38,9 +46,7 @@ const BlogGrid = async () => {
 					</div>
 					<div className={styles.blog_content}>
 						<h6 className={styles.blog_title}>{props.data.title}</h6>
-						<p className={styles.blog_meta}>
-							Posted {dayjs(props.data.createdAt).format('MMMM D, YYYY')}
-						</p>
+						<p className={styles.blog_meta}>Posted {date}</p>
 					</div>
 				</div>
 			</Link>
@@ -64,6 +70,7 @@ async function getBlogPosts() {
 			blogs {
 				title
 				slug
+				dateOverride
 				createdBy {
 					name
 					picture

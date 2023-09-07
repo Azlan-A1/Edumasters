@@ -5,9 +5,12 @@ import { Blog } from '@/types/blog.types'
 import { gql } from 'graphql-request'
 import { hygraph } from '@/lib/graphql'
 
-// Packages
-import ReactMarkdown from 'react-markdown'
+// Components
 import BlogHeader from '@/components/BlogHeader'
+
+// Packages
+import dayjs from 'dayjs'
+import ReactMarkdown from 'react-markdown'
 
 export default async function BlogPost({ params }: any) {
 	const blog = await getBlogPost(params.slug)
@@ -17,7 +20,7 @@ export default async function BlogPost({ params }: any) {
 			<BlogHeader
 				title={blog.title}
 				author={blog.createdBy}
-				published={blog.createdAt}
+				published={blog.dateOverride ?? blog.createdAt}
 			/>
 
 			<div className='container px-12 border-x'>
@@ -34,6 +37,7 @@ async function getBlogPost(slug: string) {
 				title
 				slug
 				content
+				dateOverride
 				createdBy {
 					name
 					picture
