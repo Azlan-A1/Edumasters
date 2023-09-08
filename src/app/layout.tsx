@@ -4,6 +4,9 @@ import type { Metadata } from 'next'
 // Next
 import Link from 'next/link'
 
+// Providers
+import RootProvider from './providers'
+
 // Fonts
 import { Heebo, Lalezar } from 'next/font/google'
 
@@ -14,8 +17,9 @@ import Navigation from '@/components/Navigation'
 
 // Styles
 import '@/styles/main.scss'
+
+// Packages
 import classNames from 'classnames'
-import RootProvider from './providers'
 
 const heebo = Heebo({ subsets: ['latin'] })
 const lexend = Lalezar({

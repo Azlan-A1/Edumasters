@@ -1,0 +1,39 @@
+.base {
+	@apply w-80 border shadow-lg rounded p-4 space-y-4;
+
+	.title {
+		@apply mb-4;
+	}
+
+	.link_title {
+		@apply mb-1;
+	}
+
+	ul {
+		@apply space-y-0.5;
+
+		li {
+			@apply py-0.5 transition-colors;
+
+			&:hover {
+				@apply text-pink-500;
+			}
+
+			&.active {
+				@apply text-pink-500 font-medium border-r-4 border-pink-500;
+
+				&:hover {
+					@apply text-black;
+				}
+			}
+
+			.external_link {
+				@apply flex items-center space-x-2;
+
+				.icon {
+					@apply text-gray-500;
+				}
+			}
+		}
+	}
+}

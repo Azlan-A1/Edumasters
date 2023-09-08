@@ -1,9 +1,9 @@
-import PageHeader from '@/components/PageHeader'
-
 export default function AdminDashboard() {
 	return (
 		<div>
-			<PageHeader title='Admin Dashboard' />
+			<div className='border p-4 rounded'>
+				<p>You are currently logged in as an administrator.</p>
+			</div>
 		</div>
 	)
 }
