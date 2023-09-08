@@ -21,7 +21,11 @@ interface ReviewProps {
 }
 
 const GoogleReviews = async () => {
+	return null
+	
 	const data = await fetchReviews()
+
+	if (!data) return null
 
 	// split reviews into two arrays
 	const first = data.slice(0, 3)
@@ -81,10 +85,12 @@ async function fetchReviews() {
 		const max = 10
 
 		const response = await fetch(
-			`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=reviews&review=${max}&key=${KEY}`
+			`https://maps.googleapis.com/maps/api/place/details/json?place_id=${process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_ID}&fields=reviews&review=${max}&key=${KEY}`
 		)
 
 		const data = await response.json()
+
+		console.log(data)
 
 		return data.result.reviews
 	} catch (error) {

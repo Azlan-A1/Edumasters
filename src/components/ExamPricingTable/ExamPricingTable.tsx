@@ -2,12 +2,12 @@
 import Link from 'next/link'
 
 // Styles
-import styles from './GradePricingTable.module.scss'
+import styles from './ExamPricingTable.module.scss'
 
 // Packages
 import classNames from 'classnames'
 
-interface GradePricingTableProps {}
+interface ExamPricingTableProps {}
 
 interface PricingItemProps {
 	title?: string
@@ -15,7 +15,7 @@ interface PricingItemProps {
 	featured?: boolean
 }
 
-const GradePricingTable = () => {
+const ExamPricingTable = () => {
 	const PricingItem = (props: PricingItemProps) => {
 		return (
 			<div
@@ -57,4 +57,4 @@ const GradePricingTable = () => {
 	)
 }
 
-export default GradePricingTable
+export default ExamPricingTable

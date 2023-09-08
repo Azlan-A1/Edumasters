@@ -22,11 +22,15 @@ import graduation from '@/assets/images/graduation.webp'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
 
+interface BlogGridProps {
+	max?: number
+}
+
 interface BlogItemProps {
 	data: Blog
 }
 
-const BlogGrid = async () => {
+const BlogGrid = async (props: BlogGridProps) => {
 	const blogs = await getBlogPosts()
 
 	const BlogItem = (props: BlogItemProps) => {
@@ -56,9 +60,15 @@ const BlogGrid = async () => {
 	return (
 		<div className={styles.base}>
 			<div className={styles.content}>
-				{blogs.map((blog, index) => (
-					<BlogItem key={index} data={blog} />
-				))}
+				{blogs.map((blog, index) => {
+					if (props.max) {
+						if (index >= props.max) {
+							return
+						}
+					}
+
+					return <BlogItem key={index} data={blog} />
+				})}
 			</div>
 		</div>
 	)

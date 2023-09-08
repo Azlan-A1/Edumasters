@@ -1,10 +1,10 @@
 // Styles
-import { Grade } from '@/types/grade.types'
+import { Exam } from '@/types/Exam.types'
 import styles from './FAQs.module.scss'
 import { Accordion } from './FAQs.client'
 
 interface FAQsProps {
-	data: Grade['frequentlyAskedQuestions']
+	data: Exam['frequentlyAskedQuestions']
 }
 
 const FAQs = (props: FAQsProps) => {

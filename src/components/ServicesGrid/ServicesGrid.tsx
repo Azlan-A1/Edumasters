@@ -51,7 +51,7 @@ const ServicesGrid = (props: ServicesGridProps) => {
 				/>
 				<Service
 					title='Academic Tutoring'
-					subtitle='Grades 6-12'
+					subtitle='Exams 6-12'
 					description='Live Online/In-Person'
 				/>
 				<Service

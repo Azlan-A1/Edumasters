@@ -1,4 +1,4 @@
-export type Grade = {
+export type Exam = {
 	title: string
 	slug: string
 	description: string

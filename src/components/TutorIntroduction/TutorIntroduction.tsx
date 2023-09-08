@@ -1,7 +1,7 @@
 // Styles
-import styles from './GradeTutorIntroduction.module.scss'
+import styles from './TutorIntroduction.module.scss'
 
-const GradeTutorIntroduction = () => {
+const TutorIntroduction = () => {
 	return (
 		<div className={styles.base}>
 			<div className={styles.tutor_info}>
@@ -87,4 +87,4 @@ const GradeTutorIntroduction = () => {
 	)
 }
 
-export default GradeTutorIntroduction
+export default TutorIntroduction

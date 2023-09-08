@@ -1,17 +1,17 @@
 // Types
-import { Grade } from '@/types/grade.types'
+import { Exam } from '@/types/exam.types'
 
 // Next
 import Image from 'next/image'
 
 // Styles
-import styles from './GradeHeader.module.scss'
+import styles from './ExamHeader.module.scss'
 
-interface GradeHeaderProps {
-	data: Grade
+interface ExamHeaderProps {
+	data: Exam
 }
 
-const GradeHeader = (props: GradeHeaderProps) => {
+const ExamHeader = (props: ExamHeaderProps) => {
 	return (
 		<div className={styles.base}>
 			<Image
@@ -31,4 +31,4 @@ const GradeHeader = (props: GradeHeaderProps) => {
 	)
 }
 
-export default GradeHeader
+export default ExamHeader

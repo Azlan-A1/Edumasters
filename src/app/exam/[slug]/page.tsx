@@ -1,5 +1,5 @@
 // Types
-import { Grade } from '@/types/grade.types'
+import { Exam } from '@/types/Exam.types'
 
 // GraphQL
 import { gql } from 'graphql-request'
@@ -8,15 +8,15 @@ import { hygraph } from '@/lib/graphql'
 // Components
 import Accordion from '@/components/Accordion'
 import GoogleReviews from '@/components/GoogleReviews'
-import GradeHeader from '@/components/GradeHeader'
-import GradePricingTable from '@/components/GradePricingTable'
-import GradeTutorIntroduction from '@/components/GradeTutorIntroduction'
+import ExamHeader from '@/components/ExamHeader'
+import ExamPricingTable from '@/components/ExamPricingTable'
+import TutorIntroduction from '@/components/TutorIntroduction'
 
 // Icons
 import { IconArrowsCross, IconBrain, IconDirections } from '@tabler/icons-react'
 
-export default async function Grade({ params }: any) {
-	const data = await getCourse(params.slug)
+export default async function Exam({ params }: any) {
+	const data = await getExam(params.slug)
 
 	if (!data) {
 		return (
@@ -28,7 +28,7 @@ export default async function Grade({ params }: any) {
 
 	return (
 		<div className='space-y-12'>
-			<GradeHeader data={data} />
+			<ExamHeader data={data} />
 
 			<div className='container text-center space-y-12'>
 				<p className='w-full md:w-2/3 mx-auto font-medium text-2xl'>
@@ -92,7 +92,7 @@ export default async function Grade({ params }: any) {
 					needs.
 				</h6>
 
-				<GradePricingTable />
+				<ExamPricingTable />
 			</div>
 
 			<div className='bg-gray-100 py-12'>
@@ -101,7 +101,7 @@ export default async function Grade({ params }: any) {
 					<h6 className='text-center mb-6'>
 						Introducing Azlan Ahmad - Your Professional {data.title} Tutor
 					</h6>
-					<GradeTutorIntroduction />
+					<TutorIntroduction />
 				</div>
 			</div>
 
@@ -128,7 +128,7 @@ export default async function Grade({ params }: any) {
 					Edumasters.
 				</h6>
 
-				<GradePricingTable />
+				<ExamPricingTable />
 			</div>
 
 			{/* Debug 
@@ -145,10 +145,10 @@ export default async function Grade({ params }: any) {
 	)
 }
 
-async function getCourse(slug: string) {
+async function getExam(slug: string) {
 	const query = gql`
-		query GetGrade($slug: String!) {
-			grades(where: { slug: $slug }) {
+		query GetExam($slug: String!) {
+			exam(where: { slug: $slug }) {
 				title
 				slug
 				description
@@ -171,7 +171,7 @@ async function getCourse(slug: string) {
 
 	const data = await hygraph.request(query, variables)
 
-	const { grades } = data as { grades: Grade[] }
+	const { exam } = data as { exam: Exam }
 
-	return grades[0]
+	return exam
 }
