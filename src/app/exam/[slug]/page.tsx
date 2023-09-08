@@ -1,5 +1,5 @@
 // Types
-import { Exam } from '@/types/Exam.types'
+import { Exam } from '@/types/exam.types'
 
 // GraphQL
 import { gql } from 'graphql-request'
@@ -92,7 +92,7 @@ export default async function Exam({ params }: any) {
 					needs.
 				</h6>
 
-				<ExamPricingTable />
+				<ExamPricingTable data={data.pricingTable} />
 			</div>
 
 			<div className='bg-gray-100 py-12'>
@@ -128,7 +128,7 @@ export default async function Exam({ params }: any) {
 					Edumasters.
 				</h6>
 
-				<ExamPricingTable />
+				<ExamPricingTable data={data.pricingTable} />
 			</div>
 
 			{/* Debug 
@@ -154,6 +154,13 @@ async function getExam(slug: string) {
 				description
 				headerImage {
 					url
+				}
+				pricingTable {
+					title
+					tagline
+					delivery
+					stripePriceId
+					featured
 				}
 				frequentlyAskedQuestions {
 					... on FrequencyAskedQuestion {
