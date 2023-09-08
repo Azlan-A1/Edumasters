@@ -1,0 +1,56 @@
+.base {
+	@apply border rounded p-4 w-full;
+
+	.table {
+		@apply w-full;
+
+		thead {
+			tr {
+				@apply border-b;
+
+				td {
+					@apply pb-3;
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				td {
+					@apply py-3;
+
+					&.user_details {
+						span {
+							@apply block;
+						}
+
+						.user_name {
+							@apply font-medium;
+						}
+
+						.user_email {
+							@apply text-sm text-gray-400;
+						}
+					}
+
+					.unassigned {
+						button {
+							@apply h-full w-fit px-2 rounded transition-colors;
+							@apply bg-pink-500 text-white;
+
+							&:hover {
+								@apply bg-pink-600;
+							}
+						}
+					}
+				}
+			}
+
+			tr:last-child {
+				td {
+					@apply pb-0;
+				}
+			}
+		}
+	}
+}
