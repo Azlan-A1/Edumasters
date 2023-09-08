@@ -130,17 +130,6 @@ export default async function Exam({ params }: any) {
 
 				<ExamPricingTable data={data.pricingTable} />
 			</div>
-
-			{/* Debug 
-			<div className='container'>
-				<pre className='bg-gray-100 p-4 rounded text-xs'>
-					<code>
-						<span className='font-medium'>Debug</span>{' '}
-						{JSON.stringify(data, null, 2)}
-					</code>
-				</pre>
-			</div>
-			*/}
 		</div>
 	)
 }

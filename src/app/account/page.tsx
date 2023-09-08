@@ -25,8 +25,6 @@ export default async function AccountPage() {
 		<div>
 			<UserDashboardHeader subtitle={`👋🏼 Hello ${session.user.name}`} />
 
-			<div>{JSON.stringify(tutorSessions)}</div>
-
 			<div className='space-y-12'>
 				<div className='container px-4'>
 					<div className='grid grid-cols-3 gap-8'>
