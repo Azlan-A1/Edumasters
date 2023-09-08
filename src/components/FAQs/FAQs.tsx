@@ -1,6 +1,10 @@
+// Types
+import type { Exam } from '@/types/exam.types'
+
 // Styles
-import { Exam } from '@/types/Exam.types'
 import styles from './FAQs.module.scss'
+
+// Client Components
 import { Accordion } from './FAQs.client'
 
 interface FAQsProps {

@@ -5,17 +5,19 @@ export type Exam = {
 	headerImage: {
 		url: string
 	}
-	pricingTable: {
-		title: string
-		tagline: string
-		delivery: 'ONLINE' | 'IN_PERSON' | 'BOTH'
-		stripePriceId: string
-		featured: boolean
-	}
+	pricingTable: ExamPricingItem[]
 	frequentlyAskedQuestions: [
 		{
 			question: string
 			answer: string
 		}
 	]
+}
+
+export type ExamPricingItem = {
+	title: string
+	tagline: string
+	delivery: 'ONLINE' | 'IN_PERSON' | 'BOTH'
+	stripePriceId: string
+	featured: boolean
 }

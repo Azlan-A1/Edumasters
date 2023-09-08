@@ -1,5 +1,5 @@
 // Data
-import { Exam } from '@/types/exam.types'
+import { Exam, ExamPricingItem } from '@/types/exam.types'
 
 // Next
 import Link from 'next/link'
@@ -17,11 +17,11 @@ import styles from './ExamPricingTable.module.scss'
 import classNames from 'classnames'
 
 interface ExamPricingTableProps {
-	data: Array<Exam['pricingTable']>
+	data: Exam['pricingTable']
 }
 
 const ExamPricingTable = (props: ExamPricingTableProps) => {
-	const PricingItem = async (props: Exam['pricingTable']) => {
+	const PricingItem = async (props: ExamPricingItem) => {
 		const price = (await getExamPrice(props.stripePriceId)) as {
 			currency: string
 			unit_amount: number

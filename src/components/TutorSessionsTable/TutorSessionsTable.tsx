@@ -14,7 +14,7 @@ interface TutorSessionsTableProps {
 const TutorSessionsTable = (props: TutorSessionsTableProps) => {
 	const sessions = props.data.map((session) => {
 		return (
-			<tr>
+			<tr key={session.id}>
 				<td className={styles.user_details}>
 					<span className={styles.user_name}>{session.student.name}</span>
 					<span className={styles.user_email}>{session.student.email}</span>

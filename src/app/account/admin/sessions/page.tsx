@@ -1,6 +1,11 @@
+// Types
+import type { TutorSession } from '@/types/tutor-session.types'
+
 // Prisma
-import TutorSessionsTable from '@/components/TutorSessionsTable'
 import { prisma } from '@/lib/prisma'
+
+// Components
+import TutorSessionsTable from '@/components/TutorSessionsTable'
 
 export default async function AdminDashboardSessions() {
 	const data = await getTutorSessions()
@@ -22,5 +27,5 @@ async function getTutorSessions() {
 		},
 	})
 
-	return response
+	return response as TutorSession[]
 }
