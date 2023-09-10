@@ -22,7 +22,7 @@ interface ReviewProps {
 
 const GoogleReviews = async () => {
 	return null
-	
+
 	const data = await fetchReviews()
 
 	if (!data) return null

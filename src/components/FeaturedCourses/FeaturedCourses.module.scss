@@ -1,0 +1,44 @@
+.base {
+	@apply bg-zinc-100 relative;
+
+	&:after {
+		@apply absolute block content-[''] bg-white;
+		@apply h-12 w-full top-0 z-0;
+	}
+
+	.content {
+		@apply container pb-8 z-10 relative;
+
+		.courses {
+			@apply grid grid-cols-4 gap-8;
+
+			.course {
+				@apply bg-white p-3 rounded-lg shadow-lg transition-all;
+
+				&:hover {
+					@apply -translate-y-1 shadow-xl;
+				}
+
+				.course_image {
+					@apply bg-zinc-200 h-36 w-full rounded;
+				}
+
+				.course_content {
+					@apply mt-4 space-y-2;
+
+					.course_title {
+						@apply font-medium;
+					}
+
+					.course_rating {
+						@apply flex items-center space-x-2;
+
+						.course_rating_star {
+							@apply text-pink-500;
+						}
+					}
+				}
+			}
+		}
+	}
+}

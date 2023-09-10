@@ -19,7 +19,7 @@ import logoHorizontal from '@/assets/brand/edumasters_horizontal.svg'
 import logoIcon from '@/assets/brand/edumasters_logo.svg'
 
 // Icons
-import { IconSearch, IconUserCircle } from '@tabler/icons-react'
+import { IconUserCircle } from '@tabler/icons-react'
 
 const links = [
 	{
@@ -27,12 +27,12 @@ const links = [
 		path: '/',
 	},
 	{
-		name: 'Services',
-		path: '/services',
+		name: 'Exams',
+		path: '/exams',
 	},
 	{
-		name: 'Pricing',
-		path: '/pricing',
+		name: 'Blog',
+		path: '/blog',
 	},
 	{
 		name: 'Contact',
@@ -74,7 +74,9 @@ const Navigation = async () => {
 							</button>
 						</Link>
 					)}
-					<MobileNavigation links={links} />
+					<span className='block md:hidden'>
+						<MobileNavigation links={links} />
+					</span>
 				</div>
 			</div>
 		</div>

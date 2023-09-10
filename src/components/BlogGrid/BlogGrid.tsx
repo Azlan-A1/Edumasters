@@ -46,7 +46,11 @@ const BlogGrid = async (props: BlogGridProps) => {
 			<Link href={`/blog/${props.data.slug}`}>
 				<div className={styles.blog_item}>
 					<div className={styles.blog_image}>
-						<Image src={graduation} alt='Graduation - #SEO' fill />
+						<Image
+							src={props.data?.headerImage?.url || graduation}
+							alt={`${props.data.title} Image`}
+							fill
+						/>
 					</div>
 					<div className={styles.blog_content}>
 						<h6 className={styles.blog_title}>{props.data.title}</h6>
@@ -81,6 +85,9 @@ async function getBlogPosts() {
 				title
 				slug
 				dateOverride
+				headerImage {
+					url
+				}
 				createdBy {
 					name
 					picture

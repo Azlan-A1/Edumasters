@@ -5,18 +5,22 @@
 		@apply grid-cols-1 sm:grid-cols-2 md:grid-cols-4;
 
 		.blog_item {
-			@apply relative space-y-1;
+			@apply cursor-pointer relative border rounded shadow transition-all;
+
+			&:hover {
+				@apply -translate-y-1 shadow-xl;
+			}
 
 			.blog_image {
 				@apply h-36 relative;
 
 				img {
-					@apply rounded object-cover;
+					@apply rounded-t object-cover;
 				}
 			}
 
 			.blog_content {
-				@apply group-hover:bg-gray-100;
+				@apply bg-white px-4 py-2;
 
 				.blog_meta {
 					@apply text-sm text-gray-500;

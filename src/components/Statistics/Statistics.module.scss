@@ -1,0 +1,23 @@
+.base {
+	@apply bg-zinc-900 text-white py-16;
+
+	.content {
+		@apply container;
+
+		.statistics {
+			@apply grid grid-cols-4 gap-8 divide-x divide-zinc-800;
+
+			.statistics_item {
+				@apply text-center space-y-2;
+
+				.statistics_item_number {
+					@apply text-4xl font-medium;
+				}
+
+				.statistics_item_text {
+					@apply text-xl;
+				}
+			}
+		}
+	}
+}

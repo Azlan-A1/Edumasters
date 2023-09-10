@@ -16,6 +16,9 @@ import styles from './ExamPricingTable.module.scss'
 // Packages
 import classNames from 'classnames'
 
+// Icons
+import { IconExclamationCircle } from '@tabler/icons-react'
+
 interface ExamPricingTableProps {
 	data: Exam['pricingTable']
 }
@@ -54,8 +57,17 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 				<p className={styles.online_tag}>{delivery}</p>
 				<div className={styles.pricing}>
 					<p className={styles.price}>
-						{displayCurrency(price)}
-						<span className={styles.price_frequency}>/hour</span>
+						{price ? (
+							<>
+								{displayCurrency(price)}
+								<span className={styles.price_frequency}>/hour</span>
+							</>
+						) : (
+							<span className='flex items-center text-base'>
+								<IconExclamationCircle className='mr-2' />
+								Stripe Price ID required
+							</span>
+						)}
 					</p>
 				</div>
 				<p className={styles.description}>{props.tagline}</p>
@@ -83,11 +95,11 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 }
 
 const getExamPrice = async (stripePriceId: string) => {
+	if (!stripePriceId) return null
+
 	const response = await stripe.prices.retrieve(stripePriceId, {
 		apiKey: process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY,
 	})
-
-	console.log({ response })
 
 	return {
 		currency: response.currency,

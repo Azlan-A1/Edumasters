@@ -1,0 +1,42 @@
+.base {
+	@apply bg-zinc-900 text-white py-20;
+
+	.content {
+		@apply container;
+
+		.title {
+		}
+
+		.points {
+			@apply grid grid-cols-3 gap-8 mt-12;
+
+			.selling_point {
+				@apply bg-zinc-800 rounded-lg p-6 space-y-4 transition-all;
+
+				&:hover {
+					@apply bg-pink-500 -translate-y-1;
+
+					.selling_point_text {
+						@apply text-pink-50;
+					}
+				}
+
+				.selling_point_heading {
+					@apply flex items-center;
+
+					.selling_point_icon {
+						@apply mr-4;
+					}
+
+					.selling_point_title {
+						@apply leading-3;
+					}
+				}
+
+				.selling_point_text {
+					@apply text-zinc-300;
+				}
+			}
+		}
+	}
+}

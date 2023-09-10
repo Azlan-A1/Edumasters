@@ -29,10 +29,12 @@ const Jumbotron = () => {
 					Maximum Results. Minimum Time.
 				</h1>
 
+				{/* 
 				<form className={styles.form}>
 					<input type='text' placeholder='Search for a test' />
 					<button type='submit'>Search</button>
 				</form>
+				 */}
 			</div>
 		</div>
 	)

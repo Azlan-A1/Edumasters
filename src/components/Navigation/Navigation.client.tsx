@@ -2,6 +2,7 @@
 
 // React
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 // Next
 import Image from 'next/image'
@@ -16,7 +17,6 @@ import { motion } from 'framer-motion'
 
 // Icons
 import { IconArrowNarrowLeft, IconMenu } from '@tabler/icons-react'
-import { createPortal } from 'react-dom'
 
 interface MobileNavigationProps {
 	links: {
@@ -46,7 +46,7 @@ export const MobileNavigation = (props: MobileNavigationProps) => {
 
 	return (
 		<>
-			<button onClick={handleClick} className='block md:hidden px-2'>
+			<button onClick={handleClick} className='px-2'>
 				<IconMenu />
 			</button>
 

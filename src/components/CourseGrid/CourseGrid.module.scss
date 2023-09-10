@@ -1,27 +1,13 @@
 .base {
 	.content {
-		@apply container grid gap-4 md:divide-x px-4;
-		@apply grid-cols-1 md:grid-cols-2;
-
-		.column_1,
-		.column_2 {
-			@apply gap-1;
-		}
-
-		.column_1 {
-			@apply grid grid-rows-4 grid-flow-col;
-			@apply grid-cols-2 md:grid-cols-3;
-		}
-
-		.column_2 {
-			@apply grid grid-rows-4 grid-cols-2 grid-flow-col md:pl-12;
-		}
+		@apply container grid gap-4 px-4;
+		@apply grid-cols-2 md:grid-cols-4;
 
 		.course {
-			@apply rounded-sm transition-all;
+			@apply border border-zinc-100 p-4 rounded transition-all;
 
 			&:hover {
-				@apply bg-gray-100 px-1;
+				@apply bg-zinc-100 border-zinc-200;
 			}
 		}
 	}
