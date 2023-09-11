@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 // Next
 import Link from 'next/link'
+import Script from 'next/script'
 
 // Providers
 import RootProvider from './providers'
@@ -40,6 +41,17 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
+			<Script src='https://www.googletagmanager.com/gtag/js?id=G-SPGVMK95DC' />
+			<Script id='google-analytics'>
+				{`
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+				
+					gtag('config', 'G-SPGVMK95DC');
+				`}
+			</Script>
+
 			<body className={classNames(heebo.className, lexend.variable)}>
 				<RootProvider>
 					<Banner>
