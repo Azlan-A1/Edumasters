@@ -31,10 +31,10 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 			slug: string
 		}
 	) => {
-		const price = (await getExamPrice(props.stripePriceId)) as {
+		const price: {
 			currency: string
-			unit_amount: number
-		}
+			unit_amount: number | null
+		} | null = await getExamPrice(props.stripePriceId)
 
 		let delivery
 
@@ -103,13 +103,17 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 const getExamPrice = async (stripePriceId: string) => {
 	if (!stripePriceId) return null
 
-	const response = await stripe.prices.retrieve(stripePriceId, {
-		apiKey: process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY,
-	})
+	try {
+		const response = await stripe.prices.retrieve(stripePriceId, {
+			apiKey: process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY,
+		})
 
-	return {
-		currency: response.currency,
-		unit_amount: response.unit_amount,
+		return {
+			currency: response.currency,
+			unit_amount: response.unit_amount,
+		}
+	} catch (error) {
+		return null
 	}
 }
 

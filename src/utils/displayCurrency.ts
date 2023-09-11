@@ -1,6 +1,6 @@
 interface Currency {
 	currency: string
-	unit_amount: number
+	unit_amount: number | null
 }
 
 export const displayCurrency = ({

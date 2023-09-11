@@ -5,16 +5,17 @@ import type { Service } from '@/types/service.types'
 import Link from 'next/link'
 
 // Styles
-import styles from './FeaturedCourses.module.scss'
+import styles from './FeaturedServices.module.scss'
 
 // Icons
 import { IconStarFilled } from '@tabler/icons-react'
+import Image from 'next/image'
 
-interface FeaturedCoursesProps {
+interface FeaturedServicesProps {
 	data: Service[]
 }
 
-const FeaturedCourses = (props: FeaturedCoursesProps) => {
+const FeaturedServices = (props: FeaturedServicesProps) => {
 	const rating = 5
 
 	return (
@@ -24,12 +25,20 @@ const FeaturedCourses = (props: FeaturedCoursesProps) => {
 					{props.data.map((service) => (
 						<Link href={`/services/${service.slug}`} key={service.slug}>
 							<div className={styles.course}>
-								<div className={styles.course_image}></div>
+								<div className={styles.course_image}>
+									{service?.headerImage?.url && (
+										<Image
+											src={service?.headerImage.url}
+											alt={service.title}
+											fill
+										/>
+									)}
+								</div>
 
 								<div className={styles.course_content}>
 									<p className={styles.course_title}>{service.title}</p>
-									<p className={styles.course_tagline}>
-										Guaranteed pass* with just 12 lessons.
+									<p className={styles.course_description}>
+										{service.description}
 									</p>
 									<div className={styles.course_rating}>
 										{[...Array(rating)].map((_, i) => (
@@ -50,4 +59,4 @@ const FeaturedCourses = (props: FeaturedCoursesProps) => {
 	)
 }
 
-export default FeaturedCourses
+export default FeaturedServices

@@ -2,6 +2,7 @@ export type Service = {
 	title: string
 	slug: string
 	description: string
+	featured: boolean
 	headerImage: {
 		url: string
 	}

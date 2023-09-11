@@ -20,7 +20,11 @@
 				}
 
 				.course_image {
-					@apply bg-zinc-200 h-36 w-full rounded;
+					@apply bg-zinc-200 h-36 w-full rounded relative overflow-hidden;
+
+					img {
+						@apply object-cover;
+					}
 				}
 
 				.course_content {
@@ -30,8 +34,12 @@
 						@apply font-medium;
 					}
 
+					.course_description {
+						@apply text-sm;
+					}
+
 					.course_rating {
-						@apply flex items-center space-x-2;
+						@apply flex items-center space-x-1;
 
 						.course_rating_star {
 							@apply text-pink-500;

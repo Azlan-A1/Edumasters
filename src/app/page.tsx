@@ -9,7 +9,7 @@ import { gql } from 'graphql-request'
 import Accordion from '@/components/Accordion'
 import BlogGrid from '@/components/BlogGrid/BlogGrid'
 import CourseGrid from '@/components/CourseGrid'
-import FeaturedCourses from '@/components/FeaturedCourses'
+import FeaturedServices from '@/components/FeaturedServices'
 import GoogleReviews from '@/components/GoogleReviews'
 import Jumbotron from '@/components/Jumbotron'
 import Statistics from '@/components/Statistics'
@@ -24,7 +24,9 @@ import { IconBrandOpenai } from '@tabler/icons-react'
 export default async function Home() {
 	const services = await getAllServices()
 
-	const featuredServices = [services[0], services[1], services[2], services[3]]
+	const featuredServices = services
+		.filter((service) => service.featured)
+		.slice(0, 4)
 
 	return (
 		<>
@@ -59,7 +61,7 @@ export default async function Home() {
 							Succeed on your exam with our expert tutors at Edumasters.
 						</h6>
 					</div>
-					<FeaturedCourses data={featuredServices} />
+					<FeaturedServices data={featuredServices} />
 				</div>
 
 				<div>
@@ -109,6 +111,7 @@ const getAllServices = async () => {
 				title
 				slug
 				description
+				featured
 				headerImage {
 					url
 				}
