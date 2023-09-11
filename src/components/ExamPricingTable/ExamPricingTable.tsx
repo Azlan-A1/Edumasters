@@ -1,5 +1,5 @@
 // Data
-import { Exam, ExamPricingItem } from '@/types/service.types'
+import { Service, ServicePricingItem } from '@/types/service.types'
 
 // Next
 import Link from 'next/link'
@@ -20,14 +20,14 @@ import classNames from 'classnames'
 import { IconExclamationCircle } from '@tabler/icons-react'
 
 interface ExamPricingTableProps {
-	data: Exam
+	data: Service
 }
 
 const ExamPricingTable = (props: ExamPricingTableProps) => {
 	const prices = props.data.pricingTable
 
 	const PricingItem = async (
-		props: ExamPricingItem & {
+		props: ServicePricingItem & {
 			slug: string
 		}
 	) => {

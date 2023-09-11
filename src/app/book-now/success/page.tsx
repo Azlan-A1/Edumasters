@@ -33,7 +33,7 @@ const confirmTutorSession = async (tutorSessionId: string) => {
 			id: tutorSessionId,
 		},
 		data: {
-			status: TutorSessionStatus.CONFIRMED,
+			status: TutorSessionStatus.PAID,
 		},
 	})
 }

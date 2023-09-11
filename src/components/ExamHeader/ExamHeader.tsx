@@ -1,5 +1,5 @@
 // Types
-import { Exam } from '@/types/service.types'
+import type { Service } from '@/types/service.types'
 
 // Next
 import Image from 'next/image'
@@ -8,7 +8,7 @@ import Image from 'next/image'
 import styles from './ExamHeader.module.scss'
 
 interface ExamHeaderProps {
-	data: Exam
+	data: Service
 }
 
 const ExamHeader = (props: ExamHeaderProps) => {

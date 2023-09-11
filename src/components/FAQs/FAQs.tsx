@@ -1,5 +1,5 @@
 // Types
-import type { Exam } from '@/types/service.types'
+import type { Service } from '@/types/service.types'
 
 // Styles
 import styles from './FAQs.module.scss'
@@ -8,7 +8,7 @@ import styles from './FAQs.module.scss'
 import { Accordion } from './FAQs.client'
 
 interface FAQsProps {
-	data: Exam['frequentlyAskedQuestions']
+	data: Service['frequentlyAskedQuestions']
 }
 
 const FAQs = (props: FAQsProps) => {
