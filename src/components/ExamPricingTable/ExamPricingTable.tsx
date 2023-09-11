@@ -1,5 +1,5 @@
 // Data
-import { Exam, ExamPricingItem } from '@/types/exam.types'
+import { Exam, ExamPricingItem } from '@/types/service.types'
 
 // Next
 import Link from 'next/link'
@@ -20,11 +20,17 @@ import classNames from 'classnames'
 import { IconExclamationCircle } from '@tabler/icons-react'
 
 interface ExamPricingTableProps {
-	data: Exam['pricingTable']
+	data: Exam
 }
 
 const ExamPricingTable = (props: ExamPricingTableProps) => {
-	const PricingItem = async (props: ExamPricingItem) => {
+	const prices = props.data.pricingTable
+
+	const PricingItem = async (
+		props: ExamPricingItem & {
+			slug: string
+		}
+	) => {
 		const price = (await getExamPrice(props.stripePriceId)) as {
 			currency: string
 			unit_amount: number
@@ -71,7 +77,7 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 					</p>
 				</div>
 				<p className={styles.description}>{props.tagline}</p>
-				<Link href='/book-now?type=act&option=guaranteed-pass'>
+				<Link href={`/book-now?service=${props.slug}&package=${props.sku}`}>
 					<button className={styles.buy_button}>Book Now</button>
 				</Link>
 			</div>
@@ -82,8 +88,8 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 		<div className={styles.base}>
 			<div className={styles.content}>
 				<div className={styles.table}>
-					{props.data.map((item) => {
-						return <PricingItem {...item} />
+					{prices.map((item) => {
+						return <PricingItem {...item} slug={props.data.slug} />
 					})}
 				</div>
 				<p className={styles.disclaimer}>

@@ -1,11 +1,11 @@
-export type Exam = {
+export type Service = {
 	title: string
 	slug: string
 	description: string
 	headerImage: {
 		url: string
 	}
-	pricingTable: ExamPricingItem[]
+	pricingTable: ServicePricingItem[]
 	frequentlyAskedQuestions: [
 		{
 			question: string
@@ -14,8 +14,9 @@ export type Exam = {
 	]
 }
 
-export type ExamPricingItem = {
+export type ServicePricingItem = {
 	title: string
+	sku: string
 	tagline: string
 	delivery: 'ONLINE' | 'IN_PERSON' | 'BOTH'
 	stripePriceId: string

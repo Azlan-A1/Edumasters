@@ -26,8 +26,8 @@ export async function POST(request: Request) {
 				quantity: data.sessions,
 			},
 		],
-		success_url: `${origin}/book-now/success?session_id={CHECKOUT_SESSION_ID}`,
-		cancel_url: `${origin}/book-now/canceled`,
+		success_url: `${origin}/book-now/success?stripeSessionId={CHECKOUT_SESSION_ID}&tutorSessionId=${data.tutorSessionId}`,
+		cancel_url: `${origin}/book-now`,
 	}
 
 	const session = await stripe.checkout.sessions.create(params, {

@@ -5,7 +5,7 @@
 		@apply container;
 
 		.statistics {
-			@apply grid grid-cols-4 gap-8 divide-x divide-zinc-800;
+			@apply grid grid-cols-2 md:grid-cols-4 gap-8 divide-zinc-800;
 
 			.statistics_item {
 				@apply text-center space-y-2;

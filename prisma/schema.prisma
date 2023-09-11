@@ -25,8 +25,10 @@ model User {
 model TutorSession {
   id String @id @default(uuid()) @unique
   type String
+  package String?
   date DateTime
   platform String
+  status TutorSessionStatus @default(PENDING)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -67,4 +69,12 @@ enum Role {
   ADMIN
   TUTOR
   USER  
+}
+
+enum TutorSessionStatus {
+  PENDING
+  PAID
+  CONFIRMED
+  CANCELLED
+  COMPLETED
 }

@@ -1,5 +1,5 @@
 // Types
-import type { Exam } from '@/types/exam.types'
+import type { Exam } from '@/types/service.types'
 
 // Styles
 import styles from './FAQs.module.scss'

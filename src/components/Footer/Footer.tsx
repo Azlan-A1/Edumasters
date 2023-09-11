@@ -6,7 +6,6 @@ import Link from 'next/link'
 import styles from './Footer.module.scss'
 
 // Data
-import { footerNavigation } from './Footer.data'
 import { socialProfiles } from '@/data/social-media'
 
 // Assets
@@ -20,18 +19,64 @@ const Footer = () => {
 		<div className={styles.base}>
 			<div className={styles.content}>
 				<div className={styles.navigation}>
-					{footerNavigation.map((nav, index) => (
-						<div className={styles.column} key={index}>
-							<h6 className={styles.column_title}>{nav.title}</h6>
-							<div className={styles.column_links}>
-								{nav.links.map((link, index) => (
-									<Link href={link.href} key={index} legacyBehavior>
-										{link.name}
-									</Link>
-								))}
-							</div>
-						</div>
-					))}
+					<div className={styles.navigation_items}>
+						<p className={styles.title}>College</p>
+						<ul>
+							<li>SAT</li>
+						</ul>
+					</div>
+					<div className={styles.navigation_items}>
+						<p className={styles.title}>Graduate</p>
+						<ul>
+							<li>SAT</li>
+						</ul>
+					</div>
+					<div className={styles.navigation_items}>
+						<p className={styles.title}>Academic</p>
+						<ul>
+							<li>Math</li>
+						</ul>
+					</div>
+					<div className={styles.navigation_items}>
+						<p className={styles.title}>Resouces</p>
+						<ul>
+							<li>
+								<Link
+									href='https://www.youtube.com/channel/UC-nfgjhUyCfgi1CX9OGOm7Q'
+									target='_blank'
+									rel='noopener noreferrer'
+								>
+									Videos
+								</Link>
+							</li>
+							<li>Private Tutoring</li>
+							<li>Find a Tutor</li>
+						</ul>
+					</div>
+					<div className={styles.navigation_items}>
+						<p className={styles.title}>About</p>
+						<ul>
+							<li>Our Story</li>
+							<li>Leadership</li>
+							<li>
+								<Link href='/blog'>Blog</Link>
+							</li>
+							<li>
+								<Link href='/contact'>Contact Us</Link>
+							</li>
+						</ul>
+					</div>
+					<div className={styles.navigation_items}>
+						<p className={styles.title}>Legal</p>
+						<ul>
+							<li>
+								<Link href='/privacy-policy'>Privacy Policy</Link>
+							</li>
+							<li>
+								<Link href='/terms-of-use'>Terms of Use</Link>
+							</li>
+						</ul>
+					</div>
 				</div>
 
 				<div className={styles.footer}>
@@ -55,16 +100,6 @@ const Footer = () => {
 									}}
 								/>
 							))}
-						</div>
-					</div>
-					<div>
-						<div className={styles.legal}>
-							<p>Privacy Policy</p>
-							<p>CA Privacy Notice</p>
-							<p>Do not sell or share my Personal Information</p>
-							<p>Opt-out Rights</p>
-							<p>Terms of Use</p>
-							<p>Site Map</p>
 						</div>
 					</div>
 				</div>

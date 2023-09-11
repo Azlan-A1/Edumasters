@@ -1,5 +1,5 @@
 // Types
-import { Exam } from '@/types/exam.types'
+import { Service } from '@/types/service.types'
 
 // GraphQL
 import { gql } from 'graphql-request'
@@ -15,8 +15,8 @@ import TutorIntroduction from '@/components/TutorIntroduction'
 // Icons
 import { IconArrowsCross, IconBrain, IconDirections } from '@tabler/icons-react'
 
-export default async function Exam({ params }: any) {
-	const data = await getExam(params.slug)
+export default async function Service({ params }: any) {
+	const data = await getService(params.slug)
 
 	if (!data) {
 		return (
@@ -30,15 +30,15 @@ export default async function Exam({ params }: any) {
 		<div className='space-y-12'>
 			<ExamHeader data={data} />
 
-			<div className='container text-center space-y-12'>
-				<p className='w-full md:w-2/3 mx-auto font-medium text-2xl'>
+			<div className='container space-y-12 text-center'>
+				<p className='w-full mx-auto text-2xl font-medium md:w-2/3'>
 					{data.description}
 				</p>
 
 				<div className='grid grid-cols-3 gap-12'>
 					<div>
 						<IconDirections
-							className='mx-auto mb-4 bg-pink-500 rounded-full p-2 text-white'
+							className='p-2 mx-auto mb-4 text-white bg-pink-500 rounded-full'
 							size={60}
 							stroke={1.5}
 						/>
@@ -49,7 +49,7 @@ export default async function Exam({ params }: any) {
 					</div>
 					<div>
 						<IconArrowsCross
-							className='mx-auto mb-4 bg-pink-500 rounded-full p-2 text-white'
+							className='p-2 mx-auto mb-4 text-white bg-pink-500 rounded-full'
 							size={60}
 							stroke={1.5}
 						/>
@@ -59,7 +59,7 @@ export default async function Exam({ params }: any) {
 					</div>
 					<div>
 						<IconBrain
-							className='mx-auto mb-4 bg-pink-500 rounded-full p-2 text-white'
+							className='p-2 mx-auto mb-4 text-white bg-pink-500 rounded-full'
 							size={60}
 							stroke={1.5}
 						/>
@@ -70,12 +70,12 @@ export default async function Exam({ params }: any) {
 				</div>
 			</div>
 
-			<div className='bg-black border-y-4 border-y-pink-500 py-12 mb-7'>
-				<div className='relative container text-white'>
-					<p className='text-3xl font-medium font-lexend text-center uppercase'>
+			<div className='py-12 bg-black border-y-4 border-y-pink-500 mb-7'>
+				<div className='container relative text-white'>
+					<p className='text-3xl font-medium text-center uppercase font-lexend'>
 						At Edumasters, we prioritize
 					</p>
-					<div className='absolute -bottom-20 left-1/2 -translate-x-1/2 bg-pink-500 border-4 border-black px-8 py-2'>
+					<div className='absolute px-8 py-2 -translate-x-1/2 bg-pink-500 border-4 border-black -bottom-20 left-1/2'>
 						<p className='text-4xl font-medium font-lexend whitespace-nowrap'>
 							MAXIUMUM RESULTS, MINIMUM TIME.
 						</p>
@@ -87,18 +87,18 @@ export default async function Exam({ params }: any) {
 				<h2 className='text-center'>
 					Choose which {data.title} Prep option fits you best!
 				</h2>
-				<h6 className='text-center mb-6'>
+				<h6 className='mb-6 text-center'>
 					Every student is different. We offer a variety of options to fit your
 					needs.
 				</h6>
 
-				<ExamPricingTable data={data.pricingTable} />
+				<ExamPricingTable data={data} />
 			</div>
 
-			<div className='bg-gray-100 py-12'>
+			<div className='py-12 bg-gray-100'>
 				<div className='container px-8'>
 					<h2 className='text-center'>Meet your Edumasters Tutor</h2>
-					<h6 className='text-center mb-6'>
+					<h6 className='mb-6 text-center'>
 						Introducing Azlan Ahmad - Your Professional {data.title} Tutor
 					</h6>
 					<TutorIntroduction />
@@ -106,7 +106,7 @@ export default async function Exam({ params }: any) {
 			</div>
 
 			<div className='container'>
-				<h2 className='text-center mb-6'>
+				<h2 className='mb-6 text-center'>
 					Recent questions about our {data.title} Tutoring
 				</h2>
 
@@ -115,7 +115,7 @@ export default async function Exam({ params }: any) {
 
 			<div className='container'>
 				<h2 className='text-center'>What our Clients are saying about us</h2>
-				<h6 className='text-center mb-6'>
+				<h6 className='mb-6 text-center'>
 					We have helped thousands of students achieve their goals.
 				</h6>
 				<GoogleReviews />
@@ -123,21 +123,21 @@ export default async function Exam({ params }: any) {
 
 			<div className='container py-12'>
 				<h2 className='text-center'>Prepare for your {data.title} exam!</h2>
-				<h6 className='text-center mb-6'>
+				<h6 className='mb-6 text-center'>
 					Succeed on your {data.title} exam with our expert tutors at
 					Edumasters.
 				</h6>
 
-				<ExamPricingTable data={data.pricingTable} />
+				<ExamPricingTable data={data} />
 			</div>
 		</div>
 	)
 }
 
-async function getExam(slug: string) {
+async function getService(slug: string) {
 	const query = gql`
-		query GetExam($slug: String!) {
-			exam(where: { slug: $slug }) {
+		query GetService($slug: String!) {
+			service(where: { slug: $slug }) {
 				title
 				slug
 				description
@@ -146,6 +146,7 @@ async function getExam(slug: string) {
 				}
 				pricingTable {
 					title
+					sku
 					tagline
 					delivery
 					stripePriceId
@@ -167,7 +168,7 @@ async function getExam(slug: string) {
 
 	const data = await hygraph.request(query, variables)
 
-	const { exam } = data as { exam: Exam }
+	const { service } = data as { service: Service }
 
-	return exam
+	return service
 }

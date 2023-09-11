@@ -1,5 +1,8 @@
 'use client'
 
+// Next
+import { useRouter } from 'next/navigation'
+
 // Next Auth
 import { signIn } from 'next-auth/react'
 
@@ -10,7 +13,13 @@ import Input from '@/components/Input'
 // React Hook Form
 import { useForm } from 'react-hook-form'
 
-const LoginForm = async () => {
+interface LoginFormProps {
+	callbackUrl?: string
+}
+
+const LoginForm = (props: LoginFormProps) => {
+	const router = useRouter()
+
 	const { register, handleSubmit } = useForm({
 		defaultValues: {
 			email: '',
@@ -19,7 +28,9 @@ const LoginForm = async () => {
 	})
 
 	const onSubmit = handleSubmit((data) => {
-		signIn('credentials', data)
+		signIn('credentials', data).then(() => {
+			router.push(props.callbackUrl ?? '/account')
+		})
 	})
 
 	return (

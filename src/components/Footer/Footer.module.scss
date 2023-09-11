@@ -31,21 +31,9 @@
 		.navigation {
 			@apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4;
 
-			.column {
-				.column_title {
+			.navigation_items {
+				.title {
 					@apply mb-2;
-				}
-
-				.column_links {
-					@apply flex flex-col space-y-0.5;
-
-					a {
-						@apply rounded transition-all;
-
-						&:hover {
-							@apply bg-gray-100 px-2;
-						}
-					}
 				}
 			}
 		}

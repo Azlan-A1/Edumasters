@@ -1,5 +1,5 @@
 // Types
-import { Exam } from '@/types/exam.types'
+import { Exam } from '@/types/service.types'
 
 // Next
 import Image from 'next/image'
@@ -21,7 +21,7 @@ const ExamHeader = (props: ExamHeaderProps) => {
 				className={styles.image}
 			/>
 			<div className={styles.content}>
-				<h1 className={styles.title}>{props.data.title} Tutoring</h1>
+				<h1 className={styles.title}>{props.data.title}</h1>
 				<h2 className={styles.description}>
 					Looking for a top score in the {props.data.title} exam?
 				</h2>

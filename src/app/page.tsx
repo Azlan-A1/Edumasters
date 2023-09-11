@@ -1,5 +1,5 @@
 // Types
-import type { Exam } from '@/types/exam.types'
+import type { Exam } from '@/types/service.types'
 
 // Next
 import Image from 'next/image'
@@ -26,11 +26,12 @@ import { faqs } from '@/data/faq'
 
 // Assets
 import roadToKnowledge from '@/assets/illustrations/road_to_knowledge.svg'
+import { IconBrandOpenai } from '@tabler/icons-react'
 
 export default async function Home() {
-	const courses = await getExamCourses()
+	const services = await getAllServices()
 
-	const featuredCourses = [courses[0], courses[1], courses[2], courses[3]]
+	const featuredServices = [services[0], services[1], services[2], services[3]]
 
 	return (
 		<>
@@ -39,27 +40,41 @@ export default async function Home() {
 			<div className='space-y-20'>
 				<Statistics />
 
-				<div className='container grid grid-cols-2 gap-12'>
-					<div className='h-24 w-full bg-gray-100 rounded' />
-					<div className='h-24 w-full bg-gray-100 rounded' />
+				<div className='container grid grid-cols-1 gap-12 md:grid-cols-2'>
+					<div className='w-full h-32 p-2 bg-gray-100 rounded'>
+						<div className='flex items-center h-full'>
+							<div className='flex items-center justify-center w-1/5'>
+								<IconBrandOpenai size={48} stroke={1.25} />
+							</div>
+							<div className='w-4/5'>
+								<p className='font-medium'>Why not just use ChatGPT?</p>
+								<p>
+									ChatGPT is an online sensation and can help with incredible
+									tasks, but it's information is not as valuable as that from a
+									professional tutor.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div className='w-full h-32 bg-gray-100 rounded' />
 				</div>
 
 				<div>
 					<div className='container'>
 						<h2 className='text-center'>Check out our Featured Courses</h2>
-						<h6 className='text-center mb-6'>
+						<h6 className='mb-6 text-center'>
 							Succeed on your exam with our expert tutors at Edumasters.
 						</h6>
 					</div>
-					<FeaturedCourses data={featuredCourses} />
+					<FeaturedCourses data={featuredServices} />
 				</div>
 
 				<div>
 					<h2 className='text-center'>Our Full Range of Courses</h2>
-					<h6 className='text-center mb-6'>
+					<h6 className='mb-6 text-center'>
 						Pass all of your exams with Edumasters!
 					</h6>
-					<CourseGrid data={courses} />
+					<CourseGrid data={services} />
 				</div>
 
 				<div>
@@ -69,7 +84,7 @@ export default async function Home() {
 				<div className='container'>
 					<div className='container'>
 						<h2 className='text-center'>Read our Educational Blog</h2>
-						<h6 className='text-center mb-6'>
+						<h6 className='mb-6 text-center'>
 							We have a lot of interesting articles for you to read.
 						</h6>
 					</div>
@@ -82,7 +97,7 @@ export default async function Home() {
 
 				<div className='container'>
 					<h2 className='text-center'>Frequently Asked Questions (FAQs)</h2>
-					<h6 className='text-center mb-6'>
+					<h6 className='mb-6 text-center'>
 						All the answers to your questions in one place.
 					</h6>
 					<div className='md:px-32'>
@@ -94,10 +109,10 @@ export default async function Home() {
 	)
 }
 
-const getExamCourses = async () => {
+const getAllServices = async () => {
 	const QUERY = gql`
-		query GetAllExams {
-			exams {
+		query GetAllServices {
+			services {
 				title
 				slug
 				description
@@ -110,7 +125,7 @@ const getExamCourses = async () => {
 
 	const data = await hygraph.request(QUERY)
 
-	const { exams } = data as { exams: Exam[] }
+	const { services } = data as { services: Exam[] }
 
-	return exams
+	return services
 }

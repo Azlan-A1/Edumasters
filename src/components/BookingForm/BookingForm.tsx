@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
 // Next
-import { useSearchParams } from 'next/navigation'
+import { redirect, useSearchParams } from 'next/navigation'
 
 // Next Auth
 import { useSession } from 'next-auth/react'
@@ -63,14 +63,14 @@ const BookingForm = () => {
 	const [methodisedDateTime, setMethodisedDateTime] = useState<Date>()
 
 	// query parameters
-	const type = useSearchParams().get('type')
-	const option = useSearchParams().get('option')
+	const service = useSearchParams().get('service')
+	const _package = useSearchParams().get('package') // underscore because package is a reserved word
 
 	// form data
 	const { control, register, getValues, setValue, handleSubmit } = useForm({
 		defaultValues: {
-			exam_type: type,
-			exam_option: option,
+			service: service,
+			service_package: _package,
 			sessions: 1,
 			user_id: session?.user?.id,
 			user_name: session?.user?.name,
@@ -98,52 +98,53 @@ const BookingForm = () => {
 	}, [methodisedDateTime])
 
 	// handle form submit
-	const onSubmit = handleSubmit(async (data) => {
+	const onSubmit = handleSubmit(async (formData) => {
 		await fetch('/api/tutor-sessions/book', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				type: data.exam_type,
-				user_id: data.user_id,
-				exam_option: data.exam_option,
-				sessions: data.sessions,
+				type: formData.service,
+				user_id: formData.user_id,
+				package: formData.service_package,
+				sessions: formData.sessions,
 				date: methodisedDateTime,
-				platform: data.platform.value,
+				platform: formData.platform.value,
 			}),
 		})
-			.then(async (response) => {
-				const data = await response.json()
+			.then(async (tutorSessionResponse) => {
+				const data = (await tutorSessionResponse.json()) as any
 
 				console.log(data)
+
+				await fetch('/api/checkout/session', {
+					method: 'POST',
+					headers: {
+						Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`,
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						sessions: formData.sessions,
+						tutorSessionId: data.id,
+					}),
+				}).then(async (stripeResponse) => {
+					const session = await stripeResponse.json()
+
+					const stripe = await getStripe()
+
+					await stripe
+						?.redirectToCheckout({
+							sessionId: session.id,
+						})
+						.catch((error) => {
+							console.error(error)
+						})
+				})
 			})
 			.catch((error) => {
 				console.error(error)
 			})
-
-		// await fetch('/api/checkout/session', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`,
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify({
-		// 		sessions: data.sessions,
-		// 	}),
-		// }).then(async (response) => {
-		// 	const session = await response.json()
-
-		// 	const stripe = await getStripe()
-
-		// 	const { error } = (await stripe?.redirectToCheckout({
-		// 		sessionId: session.id,
-		// 	})) as any
-
-		// 	if (error) {
-		// 		console.error(error)
-		// 	}
-		// })
 	})
 
 	// handle date and time change
@@ -178,6 +179,12 @@ const BookingForm = () => {
 			}
 		}
 	}, [session?.user])
+
+	if (!session?.user) {
+		const redirectUrl = `/login?referrer=book-now&service=${service}&package=${_package}`
+
+		redirect(redirectUrl)
+	}
 
 	return (
 		<div className={styles.base}>
@@ -234,15 +241,16 @@ const BookingForm = () => {
 							</div>
 							<div className={styles.booking_form}>
 								<Input.TextInput
-									id='exam'
-									placeholder='Exam'
-									register={register('exam_type')}
+									id='service'
+									placeholder='Service'
+									register={register('service')}
 									disabled
 								/>
 								<Input.TextInput
-									id='option'
-									placeholder='Option'
-									register={register('exam_option')}
+									id='package'
+									placeholder='Package'
+									register={register('service_package')}
+									disabled
 								/>
 								<Input.TextInput
 									id='name'

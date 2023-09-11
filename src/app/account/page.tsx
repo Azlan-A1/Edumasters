@@ -11,6 +11,9 @@ import UserDashboardHeader from '@/components/UserDashboardHeader'
 
 // Icons
 import { IconCircle, IconCircleCheck } from '@tabler/icons-react'
+import { prisma } from '@/lib/prisma'
+import dayjs from 'dayjs'
+import { UpcomingSessionWidget } from '@/components/UserDashboard'
 
 export default async function AccountPage() {
 	const session = await getServerSession(authOptions)
@@ -19,7 +22,7 @@ export default async function AccountPage() {
 		redirect('/login')
 	}
 
-	const tutorSessions = await getTutorSessions()
+	const tutorSessions = await getTutorSessions(session.user.id)
 
 	return (
 		<div>
@@ -28,10 +31,7 @@ export default async function AccountPage() {
 			<div className='space-y-12'>
 				<div className='container px-4'>
 					<div className='grid grid-cols-3 gap-8'>
-						<div className='border border-gray-100 p-4 rounded shadow-lg'>
-							<p className='text-gray-500 text-sm mb-4'>🗓️ Next Session</p>
-							<p className='text-xl font-medium'>In 2 days</p>
-						</div>
+						<UpcomingSessionWidget sessions={tutorSessions} />
 						<div className='border border-gray-100 p-4 rounded shadow-lg'>
 							<p className='text-gray-500 text-sm mb-4'>
 								😄 Completed Sessions
@@ -57,15 +57,17 @@ export default async function AccountPage() {
 									<p>Date & Time</p>
 								</div>
 								<div className='border rounded px-4 py-2'>
-									<div className='grid grid-cols-3 gap-4'>
-										<p>ACT Exam Tutoring</p>
-										<p>Azlan Ahmed</p>
-										<p>
-											{new Date().toDateString() +
-												' ' +
-												new Date().toLocaleTimeString()}
-										</p>
-									</div>
+									{tutorSessions?.map((session) => (
+										<div className='grid grid-cols-3 gap-4'>
+											<p>{session.type}</p>
+											<p>{session?.tutorId ? session?.tutor?.name : ''}</p>
+											<p>
+												{dayjs(session?.date).format(
+													'MMMM D, YYYY [at] h:mm a'
+												)}
+											</p>
+										</div>
+									))}
 								</div>
 							</div>
 						</div>
@@ -95,20 +97,18 @@ export default async function AccountPage() {
 	)
 }
 
-async function getTutorSessions() {
-	try {
-		const response = await fetch(
-			process.env.NEXT_PUBLIC_BASE_URL + '/api/tutor-sessions',
-			{
-				method: 'GET',
-				headers: headers(),
-			}
-		)
+async function getTutorSessions(userId: string) {
+	const sessions = await prisma.tutorSession.findMany({
+		where: {
+			studentId: userId,
+		},
+		include: {
+			tutor: true,
+		},
+		orderBy: {
+			date: 'asc',
+		},
+	})
 
-		const data = await response.json()
-
-		return data
-	} catch (error) {
-		console.error(error)
-	}
+	return sessions
 }

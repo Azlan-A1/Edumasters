@@ -13,7 +13,11 @@ import Input from '@/components/Input'
 // React Hook Form
 import { useForm } from 'react-hook-form'
 
-const RegisterForm = () => {
+interface RegisterFormProps {
+	callbackUrl?: string
+}
+
+const RegisterForm = (props: RegisterFormProps) => {
 	const { register, handleSubmit } = useForm({
 		defaultValues: {
 			email: '',
@@ -37,7 +41,9 @@ const RegisterForm = () => {
 				signIn('credentials', {
 					email: data.email,
 					password: data.password,
-					callbackUrl: `${window.location.origin}/account`,
+					callbackUrl:
+						window.location.origin + props.callbackUrl ??
+						`${window.location.origin}/account`,
 				})
 			})
 			.catch((error) => {

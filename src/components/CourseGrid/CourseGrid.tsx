@@ -1,5 +1,5 @@
 // Types
-import type { Exam } from '@/types/exam.types'
+import type { Service } from '@/types/service.types'
 
 // Next
 import Link from 'next/link'
@@ -8,13 +8,13 @@ import Link from 'next/link'
 import styles from './CourseGrid.module.scss'
 
 interface CourseGridProps {
-	data: Exam[]
+	data: Service[]
 }
 
 const CourseGrid = (props: CourseGridProps) => {
-	const CourseLink = (props: Exam) => {
+	const CourseLink = (props: Service) => {
 		return (
-			<Link href={`/exams/${props.slug}`} className={styles.course}>
+			<Link href={`/services/${props.slug}`} className={styles.course}>
 				<div>
 					<span>{props.title}</span>
 				</div>

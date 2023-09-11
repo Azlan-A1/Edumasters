@@ -1,7 +1,10 @@
-export default function Services() {
+// Components
+import PageHeader from '@/components/PageHeader'
+
+export default function ExamsPage() {
 	return (
-		<div>
-			<h1>Services</h1>
-		</div>
+		<>
+			<PageHeader title='Exams Page' />
+		</>
 	)
 }
