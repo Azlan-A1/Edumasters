@@ -45,6 +45,7 @@ export default function RootLayout({
 				async
 				src='https://www.googletagmanager.com/gtag/js?id=G-SPGVMK95DC'
 			/>
+
 			<Script id='google-analytics'>
 				{`
 					window.dataLayer = window.dataLayer || [];
@@ -54,6 +55,13 @@ export default function RootLayout({
 					gtag('config', 'G-SPGVMK95DC');
 				`}
 			</Script>
+
+			<Script
+				async
+				src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1992672346794145'
+				crossOrigin='anonymous'
+				strategy='beforeInteractive'
+			/>
 
 			<body className={classNames(heebo.className, lexend.variable)}>
 				<RootProvider>
