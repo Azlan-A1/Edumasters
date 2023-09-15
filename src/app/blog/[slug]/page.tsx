@@ -17,11 +17,7 @@ export default async function BlogPost({ params }: any) {
 
 	return (
 		<div>
-			<BlogHeader
-				title={blog.title}
-				author={blog.createdBy}
-				published={blog.dateOverride ?? blog.createdAt}
-			/>
+			<BlogHeader {...blog} />
 
 			<div className='container px-12 border-x'>
 				<ReactMarkdown>{blog.content}</ReactMarkdown>
@@ -38,6 +34,9 @@ async function getBlogPost(slug: string) {
 				slug
 				content
 				dateOverride
+				headerImage {
+					url
+				}
 				createdBy {
 					name
 					picture

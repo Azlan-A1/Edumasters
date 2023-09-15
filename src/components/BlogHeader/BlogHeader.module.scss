@@ -14,8 +14,16 @@
 			}
 		}
 
+		.image {
+			@apply relative h-72 w-full overflow-hidden rounded-lg shadow-lg;
+
+			img {
+				@apply object-cover;
+			}
+		}
+
 		.title {
-			@apply mb-6 mt-2;
+			@apply mb-6 mt-4;
 		}
 
 		.meta {
