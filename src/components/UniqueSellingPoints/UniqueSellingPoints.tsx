@@ -2,45 +2,47 @@
 import styles from './UniqueSellingPoints.module.scss'
 
 // Icons
-import { IconGridPattern } from '@tabler/icons-react'
+import {
+	IconBallpen,
+	IconBooks,
+	IconChalkboard,
+	IconGridPattern,
+	IconMessages,
+	IconQuotes,
+	IconTie,
+} from '@tabler/icons-react'
 
 const UniqueSellingPoints = () => {
 	const sellingPoints = [
 		{
-			icon: <IconGridPattern />,
-			title: '360° Learning',
-			description:
-				'We provide 360° learning to our students. We make sure that our students are learning from all the aspects.',
+			icon: <IconTie />,
+			title: 'Expert Tutors',
+			description: `At Edumasters, our tutors are not just educators; they're subject specialists, many of whom have firsthand experience with the tests they teach, ensuring you get insights from the best in the industry.`,
 		},
 		{
-			icon: <IconGridPattern />,
-			title: '360° Learning',
-			description:
-				'We provide 360° learning to our students. We make sure that our students are learning from all the aspects.',
+			icon: <IconBallpen />,
+			title: 'Personalized Learning Plans',
+			description: `Recognizing that no two students learn the same way, we design individualized study paths tailored to each student's strengths, weaknesses, and goals.`,
 		},
 		{
-			icon: <IconGridPattern />,
-			title: '360° Learning',
-			description:
-				'We provide 360° learning to our students. We make sure that our students are learning from all the aspects.',
+			icon: <IconChalkboard />,
+			title: 'Hollistic Learning',
+			description: `Beyond just academic content, Edumasters emphasizes critical thinking, problem-solving, and time management skills, essential for real-world success.`,
 		},
 		{
-			icon: <IconGridPattern />,
-			title: '360° Learning',
-			description:
-				'We provide 360° learning to our students. We make sure that our students are learning from all the aspects.',
+			icon: <IconQuotes />,
+			title: 'Proven Track Record',
+			description: `Our success stories, testimonials, and consistently high student performance metrics attest to our commitment and effectiveness in delivering top-tier educational services.`,
 		},
 		{
-			icon: <IconGridPattern />,
-			title: '360° Learning',
-			description:
-				'We provide 360° learning to our students. We make sure that our students are learning from all the aspects.',
+			icon: <IconMessages />,
+			title: 'Community and Support',
+			description: `Edumasters fosters a supportive learning community where students can engage in collaborative study sessions, share resources, and motivate each other.`,
 		},
 		{
-			icon: <IconGridPattern />,
-			title: '360° Learning',
-			description:
-				'We provide 360° learning to our students. We make sure that our students are learning from all the aspects.',
+			icon: <IconBooks />,
+			title: 'Cutting-Edge Resources',
+			description: `Our study materials are meticulously curated, up-to-date, and designed to mirror the challenges of actual exams, ensuring students are always a step ahead.`,
 		},
 	]
 
