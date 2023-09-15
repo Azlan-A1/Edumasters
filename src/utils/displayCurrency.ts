@@ -12,5 +12,9 @@ export const displayCurrency = ({
 		currency,
 	})
 
+	if (!unit_amount) {
+		return formatter.format(0)
+	}
+
 	return formatter.format(unit_amount / 100)
 }
