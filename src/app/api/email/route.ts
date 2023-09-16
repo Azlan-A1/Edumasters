@@ -1,5 +1,5 @@
 // Lib
-import { sendEmail } from '@/lib/nodemailer'
+import { sendEmail } from '@/lib/email'
 
 // React Email
 import { render } from '@react-email/render'
