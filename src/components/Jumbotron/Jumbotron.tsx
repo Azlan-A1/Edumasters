@@ -10,8 +10,8 @@ import { IconStarFilled } from '@tabler/icons-react'
 
 const Jumbotron = () => {
 	return (
-		<div className='w-full h-[450px]'>
-			<div className='container grid h-full grid-cols-2 gap-8'>
+		<div className='w-full py-20'>
+			<div className='container grid h-full grid-cols-1 gap-8 md:grid-cols-2'>
 				<div className='flex flex-col justify-center'>
 					<h1 className='text-5xl'>Succeed with Edumasters</h1>
 					<p className='mt-4 text-xl'>
@@ -50,7 +50,7 @@ const Jumbotron = () => {
 						</div>
 					</div>
 				</div>
-				<div className='relative w-full h-full'>
+				<div className='relative hidden w-full md:block md:h-full'>
 					<Image
 						src={header}
 						alt='Header Image'

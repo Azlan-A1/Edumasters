@@ -8,7 +8,7 @@
 		}
 
 		.points {
-			@apply grid grid-cols-2 md:grid-cols-3 gap-8 mt-12;
+			@apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12;
 
 			.selling_point {
 				@apply bg-zinc-800 rounded-lg p-6 space-y-4 transition-all;
@@ -26,10 +26,6 @@
 
 					.selling_point_icon {
 						@apply mr-4;
-					}
-
-					.selling_point_title {
-						@apply leading-3;
 					}
 				}
 
