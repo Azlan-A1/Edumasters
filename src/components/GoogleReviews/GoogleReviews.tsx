@@ -66,13 +66,13 @@ const GoogleReviews = async () => {
 		<div className={styles.base}>
 			<div className={styles.reviews_grid}>
 				<div className={styles.column}>
-					{first.map((review: ReviewProps) => {
-						return <Review {...review} />
+					{first.map((review: ReviewProps, i: number) => {
+						return <Review key={i} {...review} />
 					})}
 				</div>
 				<div className={styles.column}>
-					{second.map((review: ReviewProps) => {
-						return <Review {...review} />
+					{second.map((review: ReviewProps, i: number) => {
+						return <Review key={i} {...review} />
 					})}
 				</div>
 			</div>

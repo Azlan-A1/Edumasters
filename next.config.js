@@ -4,6 +4,7 @@ const nextConfig = {
 		domains: ['media.graphassets.com', 'lh3.googleusercontent.com'],
 	},
 	experimental: {
+		esmExternals: 'loose',
 		serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
 	},
 }

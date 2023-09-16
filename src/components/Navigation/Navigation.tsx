@@ -27,8 +27,8 @@ const links = [
 		path: '/',
 	},
 	{
-		name: 'Exams',
-		path: '/exams',
+		name: 'Services',
+		path: '/services',
 	},
 	{
 		name: 'Blog',

@@ -52,7 +52,7 @@ const RegisterForm = (props: RegisterFormProps) => {
 	})
 
 	return (
-		<form onSubmit={onSubmit} className='space-y-2'>
+		<form onSubmit={onSubmit} className='space-y-4'>
 			{error && <div className=''>{JSON.stringify(error)}</div>}
 
 			<Input.TextInput

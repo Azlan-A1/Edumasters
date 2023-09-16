@@ -6,14 +6,16 @@ import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
+// Prisma
+import { prisma } from '@/lib/prisma'
+
 // Components
 import UserDashboardHeader from '@/components/UserDashboardHeader'
-
-// Icons
-import { IconCircle, IconCircleCheck } from '@tabler/icons-react'
-import { prisma } from '@/lib/prisma'
-import dayjs from 'dayjs'
-import { UpcomingSessionWidget } from '@/components/UserDashboard'
+import {
+	CompletedSessionsWidget,
+	UpcomingSessionWidget,
+	UserSessionsTable,
+} from '@/components/UserDashboard'
 
 export default async function AccountPage() {
 	const session = await getServerSession(authOptions)
@@ -26,71 +28,21 @@ export default async function AccountPage() {
 
 	return (
 		<div>
-			<UserDashboardHeader subtitle={`👋🏼 Hello ${session.user.name}`} />
+			<UserDashboardHeader
+				title={`Hello ${session.user.name} 👋🏼`}
+				subtitle='Welcome to your account dashboard'
+			/>
 
 			<div className='space-y-12'>
 				<div className='container px-4'>
 					<div className='grid grid-cols-3 gap-8'>
 						<UpcomingSessionWidget sessions={tutorSessions} />
-						<div className='border border-gray-100 p-4 rounded shadow-lg'>
-							<p className='text-gray-500 text-sm mb-4'>
-								😄 Completed Sessions
-							</p>
-							<p className='text-xl font-medium'>4 sessions</p>
-						</div>
-						<div className='border border-gray-100 p-4 rounded shadow-lg'>
-							<p className='text-gray-500 text-sm mb-4'>
-								✍🏼 Homework Tasks Completed
-							</p>
-							<p className='text-xl font-medium'>12 homeworks</p>
-						</div>
+						<CompletedSessionsWidget sessions={tutorSessions} />
 					</div>
 				</div>
 
 				<div className='container px-4'>
-					<div className='grid grid-cols-4 gap-8'>
-						<div className='col-span-3'>
-							<div className='space-y-4'>
-								<div className='grid grid-cols-3 gap-4 text-xs text-gray-400'>
-									<p>Session Type</p>
-									<p>Tutor Name</p>
-									<p>Date & Time</p>
-								</div>
-								<div className='border rounded px-4 py-2'>
-									{tutorSessions?.map((session) => (
-										<div className='grid grid-cols-3 gap-4'>
-											<p>{session.type}</p>
-											<p>{session?.tutorId ? session?.tutor?.name : ''}</p>
-											<p>
-												{dayjs(session?.date).format(
-													'MMMM D, YYYY [at] h:mm a'
-												)}
-											</p>
-										</div>
-									))}
-								</div>
-							</div>
-						</div>
-						<div className='border border-gray-100 p-4 rounded shadow-lg'>
-							<p className='text-gray-500 text-sm mb-4'>📚 Homework</p>
-							<div className='space-y-2'>
-								<div className='flex items-center space-x-2'>
-									<IconCircle size={16} />
-									<p className=''>Maths revision</p>
-								</div>
-								<div className='flex items-center space-x-2'>
-									<IconCircleCheck
-										size={16}
-										stroke={2.5}
-										className='text-pink-500'
-									/>
-									<p className='line-through italic decoration-pink-500 text-gray-500'>
-										Science revision
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
+					<UserSessionsTable sessions={tutorSessions} />
 				</div>
 			</div>
 		</div>

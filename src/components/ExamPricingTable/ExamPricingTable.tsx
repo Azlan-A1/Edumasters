@@ -89,7 +89,9 @@ const ExamPricingTable = (props: ExamPricingTableProps) => {
 			<div className={styles.content}>
 				<div className={styles.table}>
 					{prices.map((item) => {
-						return <PricingItem {...item} slug={props.data.slug} />
+						return (
+							<PricingItem key={item.sku} {...item} slug={props.data.slug} />
+						)
 					})}
 				</div>
 				<p className={styles.disclaimer}>

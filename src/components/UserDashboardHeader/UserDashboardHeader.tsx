@@ -14,6 +14,7 @@ import Button from '@/components/Button'
 import PageHeader from '@/components/PageHeader'
 
 interface UserDashboardHeaderProps {
+	title: string
 	subtitle: string
 }
 
@@ -22,7 +23,7 @@ const UserDashboardHeader = (props: UserDashboardHeaderProps) => {
 
 	return (
 		<PageHeader
-			title='Welcome to Edumasters'
+			title={props.title}
 			subtitle={props.subtitle}
 			actions={
 				<>

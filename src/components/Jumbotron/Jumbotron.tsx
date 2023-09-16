@@ -1,40 +1,63 @@
 // Next
 import Image from 'next/image'
 
-// Components
-import Button from '../Button'
-import Input from '../Input'
-
-// Styles
-import styles from './Jumbotron.module.scss'
-
 // Assets
-import graduation from '@/assets/images/graduation.webp'
+import header from '@/assets/images/header.webp'
+import elsa from '@/assets/images/elsa_t.webp'
 
-// Packages
-import classNames from 'classnames'
+// Icons
+import { IconStarFilled } from '@tabler/icons-react'
 
 const Jumbotron = () => {
 	return (
-		<div className={styles.base}>
-			<div className={styles.image}>
-				<Image src={graduation} alt='Graduation - #SEO' fill />
-			</div>
-			<div className={styles.content}>
-				<p className={styles.label}>Professional Online Tutoring</p>
-				<p className={styles.subtitle}>
-					No matter the exam, score improvement is guaranteed.*
-				</p>
-				<h1 className={classNames(styles.title)}>
-					Maximum Results. Minimum Time.
-				</h1>
+		<div className='w-full h-[450px]'>
+			<div className='container grid h-full grid-cols-2 gap-8'>
+				<div className='flex flex-col justify-center'>
+					<h1 className='text-5xl'>Succeed with Edumasters</h1>
+					<p className='mt-4 text-xl'>
+						We are committed to provide quality education that can able to
+						achieve your goals
+					</p>
+					<p className='mt-8 text-lg font-medium text-pink-500'>
+						We've helped over <span>1,000</span> students to achieve their goals
+						so far
+					</p>
 
-				{/* 
-				<form className={styles.form}>
-					<input type='text' placeholder='Search for a test' />
-					<button type='submit'>Search</button>
-				</form>
-				 */}
+					<div className='mt-8'>
+						<div className='px-4 py-2 space-y-4 rounded-lg shadow-xl w-fit'>
+							<div className='flex items-center'>
+								<div className='relative mr-4 overflow-hidden bg-gray-100 rounded-full w-14 h-14'>
+									<Image
+										src={elsa}
+										alt='Elsa T.'
+										className='object-cover'
+										fill
+									/>
+								</div>
+								<div>
+									<p>Elsa T.</p>
+									<p className='text-xs'>Took LSAT Tutoring with Edumasters</p>
+								</div>
+								<div className='flex items-center ml-auto space-x-1 text-yellow-500'>
+									<IconStarFilled size={16} />
+									<IconStarFilled size={16} />
+									<IconStarFilled size={16} />
+									<IconStarFilled size={16} />
+									<IconStarFilled size={16} />
+								</div>
+							</div>
+							<p>Edumasters was incredible at helping me pass my LSAT!</p>
+						</div>
+					</div>
+				</div>
+				<div className='relative w-full h-full'>
+					<Image
+						src={header}
+						alt='Header Image'
+						fill
+						className='object-contain'
+					/>
+				</div>
 			</div>
 		</div>
 	)

@@ -9,11 +9,10 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
 // Components
-import LoginForm from '@/components/LoginForm'
 import PageHeader from '@/components/PageHeader'
 import RegisterForm from '@/components/RegisterForm'
 
-export default async function Login() {
+export default async function Register() {
 	const session = await getServerSession(authOptions)
 
 	if (session?.user) {
@@ -23,21 +22,21 @@ export default async function Login() {
 	return (
 		<div>
 			<PageHeader
-				title='Login/Register'
-				subtitle={`Don't have an account?`}
+				title='Register'
+				subtitle={`Already have an account?`}
 				actions={
 					<>
-						<Link href='/register'>Register for an Account</Link>
+						<Link href='/login'>Login to your Account</Link>
 					</>
 				}
 			/>
 
 			<div className='container px-4'>
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-					<div>
-						<LoginForm />
-					</div>
 					<div className='h-full w-full bg-pink-500 rounded-lg'></div>
+					<div>
+						<RegisterForm />
+					</div>
 				</div>
 			</div>
 		</div>

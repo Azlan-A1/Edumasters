@@ -1,3 +1,5 @@
-import { UpcomingSessionWidget } from './UserDashboard'
+import CompletedSessionsWidget from './CompletedSessionsWidget'
+import UpcomingSessionWidget from './UpcomingSessionWidget'
+import UserSessionsTable from './UserSessionsTable'
 
-export { UpcomingSessionWidget }
+export { CompletedSessionsWidget, UpcomingSessionWidget, UserSessionsTable }

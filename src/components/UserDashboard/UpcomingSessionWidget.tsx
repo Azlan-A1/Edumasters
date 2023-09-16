@@ -1,6 +1,9 @@
 // Prisma
 import { TutorSession } from '@prisma/client'
 
+// Components
+import Widget from '../Widget'
+
 // Packages
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -10,7 +13,7 @@ interface UpcomingSessionWidgetProps {
 	sessions: TutorSession[]
 }
 
-export const UpcomingSessionWidget = (props: UpcomingSessionWidgetProps) => {
+const UpcomingSessionWidget = (props: UpcomingSessionWidgetProps) => {
 	const latestSession = props.sessions[0]
 
 	const hasUpcomingSession =
@@ -24,6 +27,7 @@ export const UpcomingSessionWidget = (props: UpcomingSessionWidgetProps) => {
 	const futureDate = dayjs(latestSession.date)
 	const daysDifference = futureDate.diff(now, 'day')
 	const hoursDifference = futureDate.diff(now, 'hour') % 24
+	const minutesDifference = futureDate.diff(now, 'minute') % 60
 
 	let countdownString =
 		daysDifference > 0
@@ -37,19 +41,14 @@ export const UpcomingSessionWidget = (props: UpcomingSessionWidgetProps) => {
 				: `In ${hoursDifference} hour${hoursDifference > 1 ? 's' : ''}`
 	}
 
+	if (minutesDifference > 0) {
+		countdownString +=
+			daysDifference > 0 || hoursDifference > 0
+				? ` and ${minutesDifference} minute${minutesDifference > 1 ? 's' : ''}`
+				: `In ${minutesDifference} minute${minutesDifference > 1 ? 's' : ''}`
+	}
+
 	return <Widget title='🗓️ Next Session' value={countdownString} />
 }
 
-interface WidgetProps {
-	title: string
-	value: string
-}
-
-const Widget = (props: WidgetProps) => {
-	return (
-		<div className='border border-gray-100 p-4 rounded shadow-lg'>
-			<p className='text-gray-500 text-sm mb-4'>{props.title}</p>
-			<p className='text-xl font-medium'>{props.value}</p>
-		</div>
-	)
-}
+export default UpcomingSessionWidget

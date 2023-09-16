@@ -29,12 +29,12 @@ const LoginForm = (props: LoginFormProps) => {
 
 	const onSubmit = handleSubmit((data) => {
 		signIn('credentials', data).then(() => {
-			router.push(props.callbackUrl ?? '/account')
+			router.push('/account')
 		})
 	})
 
 	return (
-		<form onSubmit={onSubmit} className='space-y-2'>
+		<form onSubmit={onSubmit} className='space-y-4'>
 			<Input.TextInput
 				id='email'
 				placeholder='Enter your email address'

@@ -32,7 +32,7 @@ export default async function Home() {
 		<>
 			<Jumbotron />
 
-			<div className='space-y-20'>
+			<div className='mt-20 space-y-20'>
 				<Statistics />
 
 				<div className='container grid grid-cols-1 gap-12 md:grid-cols-2'>
