@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 				quantity: data.sessions,
 			},
 		],
-		success_url: `${origin}/book-now/success?stripeSessionId={CHECKOUT_SESSION_ID}&tutorSessionId=${data.tutorSessionId}`,
+		success_url: `${origin}/account/session/${data.tutorSessionId}?payment=success`,
 		cancel_url: `${origin}/book-now`,
 	}
 

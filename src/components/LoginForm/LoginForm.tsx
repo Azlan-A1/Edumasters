@@ -37,17 +37,19 @@ const LoginForm = (props: LoginFormProps) => {
 		<form onSubmit={onSubmit} className='space-y-4'>
 			<Input.TextInput
 				id='email'
+				label='Email Address'
 				placeholder='Enter your email address'
 				register={register('email')}
 			/>
 			<Input.TextInput
 				type='password'
 				id='password'
+				label='Password'
 				placeholder='Enter your password'
 				register={register('password')}
 			/>
-			<Button type='submit' className='ml-auto'>
-				Login
+			<Button type='submit' variant='primary' className='ml-auto'>
+				Login to Edumasters
 			</Button>
 		</form>
 	)

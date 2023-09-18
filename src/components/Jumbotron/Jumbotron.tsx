@@ -55,7 +55,7 @@ const Jumbotron = () => {
 						src={header}
 						alt='Header Image'
 						fill
-						className='object-contain'
+						className='object-contain md:scale-100 xl:scale-150'
 					/>
 				</div>
 			</div>

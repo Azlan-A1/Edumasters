@@ -16,7 +16,7 @@ export default async function PrivacyPolicy() {
 			<PageHeader title={page.title} />
 
 			<div className='container'>
-				<ReactMarkdown>{page.content}</ReactMarkdown>
+				<ReactMarkdown className='markdown'>{page.content}</ReactMarkdown>
 			</div>
 		</div>
 	)

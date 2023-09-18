@@ -23,8 +23,13 @@ const UpcomingSessionWidget = (props: UpcomingSessionWidgetProps) => {
 		return <Widget title='🗓️ Next Session' value='No upcoming sessions' />
 	}
 
+	// get the next session after today
+	const nextSession = props.sessions.find((session) =>
+		dayjs(session.date).isAfter(dayjs())
+	)
+
 	const now = dayjs()
-	const futureDate = dayjs(latestSession.date)
+	const futureDate = dayjs(nextSession.date)
 	const daysDifference = futureDate.diff(now, 'day')
 	const hoursDifference = futureDate.diff(now, 'hour') % 24
 	const minutesDifference = futureDate.diff(now, 'minute') % 60

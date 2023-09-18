@@ -28,7 +28,9 @@ const BlogHeader = (props: Blog) => {
 				<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
 					<div>
 						<div className={styles.image}>
-							<Image src={props.headerImage.url} alt={props.title} fill />
+							{props.headerImage && (
+								<Image src={props.headerImage.url} alt={props.title} fill />
+							)}
 						</div>
 					</div>
 					<div className='flex flex-col justify-center'>

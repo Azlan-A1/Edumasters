@@ -34,7 +34,7 @@ const UserSessionsTable = (props: UserSessionsTableProps) => {
 							<p>{session.type}</p>
 						</td>
 						<td>
-							<p>{session?.tutorId ?? ''}</p>
+							<p>{session?.tutorId ? <>{session.tutor.name}</> : ''}</p>
 						</td>
 						<td>
 							<p>{dayjs(session?.date).format('MMMM D, YYYY [at] h:mm a')}</p>

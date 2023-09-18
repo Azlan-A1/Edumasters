@@ -1,8 +1,8 @@
 version: '3'
 services:
   postgres:
-    image: postgres:latest
-    container_name: postgres
+    image: postgres:15.4
+    container_name: postgres-edumasters
     ports:
       - '5432:5432'
     volumes:

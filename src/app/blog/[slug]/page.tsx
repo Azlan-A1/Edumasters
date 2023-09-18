@@ -20,7 +20,7 @@ export default async function BlogPost({ params }: any) {
 			<BlogHeader {...blog} />
 
 			<div className='container px-12 border-x'>
-				<ReactMarkdown>{blog.content}</ReactMarkdown>
+				<ReactMarkdown className='markdown'>{blog.content}</ReactMarkdown>
 			</div>
 		</div>
 	)

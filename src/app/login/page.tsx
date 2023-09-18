@@ -9,9 +9,9 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
 // Components
+import Button from '@/components/Button'
 import LoginForm from '@/components/LoginForm'
 import PageHeader from '@/components/PageHeader'
-import RegisterForm from '@/components/RegisterForm'
 
 export default async function Login() {
 	const session = await getServerSession(authOptions)
@@ -23,11 +23,13 @@ export default async function Login() {
 	return (
 		<div>
 			<PageHeader
-				title='Login/Register'
+				title='Login to Edumasters'
 				subtitle={`Don't have an account?`}
 				actions={
 					<>
-						<Link href='/register'>Register for an Account</Link>
+						<Link href='/register'>
+							<Button variant='secondary'>Register for an Account</Button>
+						</Link>
 					</>
 				}
 			/>

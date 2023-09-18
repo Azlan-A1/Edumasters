@@ -9,6 +9,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
 // Components
+import Button from '@/components/Button'
 import PageHeader from '@/components/PageHeader'
 import RegisterForm from '@/components/RegisterForm'
 
@@ -22,11 +23,13 @@ export default async function Register() {
 	return (
 		<div>
 			<PageHeader
-				title='Register'
+				title='Register with Edumasters'
 				subtitle={`Already have an account?`}
 				actions={
 					<>
-						<Link href='/login'>Login to your Account</Link>
+						<Link href='/login'>
+							<Button variant='secondary'>Login to your Account</Button>
+						</Link>
 					</>
 				}
 			/>

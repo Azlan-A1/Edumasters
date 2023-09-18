@@ -57,29 +57,35 @@ const RegisterForm = (props: RegisterFormProps) => {
 
 			<Input.TextInput
 				id='email'
+				label='Email Address'
 				placeholder='Enter your email address'
 				register={register('email')}
 			/>
-			<Input.TextInput
-				type='password'
-				id='password'
-				placeholder='Enter your password'
-				register={register('password')}
-			/>
-			<Input.TextInput
-				type='password'
-				id='password_confirm'
-				placeholder='Confirm your password'
-				register={register('password_confirm')}
-			/>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+				<Input.TextInput
+					type='password'
+					id='password'
+					label='Password'
+					placeholder='Enter your password'
+					register={register('password')}
+				/>
+				<Input.TextInput
+					type='password'
+					id='password_confirm'
+					label='Confirm Password'
+					placeholder='Confirm your password'
+					register={register('password_confirm')}
+				/>
+			</div>
 			<Input.TextInput
 				type='text'
 				id='name'
+				label='Full Name'
 				placeholder='Enter your Full Name'
 				register={register('name')}
 			/>
-			<Button type='submit' className='ml-auto'>
-				Create Account
+			<Button type='submit' variant='primary' className='ml-auto'>
+				Register with Edumasters
 			</Button>
 		</form>
 	)

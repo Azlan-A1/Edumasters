@@ -37,7 +37,9 @@ const UserDashboardHeader = (props: UserDashboardHeaderProps) => {
 							<Button>Admin Dashboard</Button>
 						</Link>
 					)}
-					<Button onClick={() => signOut()}>Logout</Button>
+					<Button variant='tertiary' onClick={() => signOut()}>
+						Logout
+					</Button>
 				</>
 			}
 		/>
